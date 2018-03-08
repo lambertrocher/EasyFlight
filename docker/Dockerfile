@@ -15,8 +15,8 @@ RUN git clone https://github.com/lambertrocher/EasyFlight.git
 RUN npm --version
 
 WORKDIR "/EasyFlight/ionic4j"
-RUN npm install --loglevel verbose
+#RUN npm install --loglevel verbose
 WORKDIR "/EasyFlight/backend"
-RUN npm install --loglevel verbose
+#RUN npm install --loglevel verbose
 
-CMD mvn
+#CMD mvn
