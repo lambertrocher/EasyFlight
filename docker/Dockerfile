@@ -14,11 +14,9 @@ RUN git clone https://github.com/lambertrocher/EasyFlight.git
 
 RUN apt-get install -y curl
 
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | sh
+RUN wget https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 
-RUN export NVM_DIR="/root/.nvm"
-
-RUN source /root/.nvm/nvm.sh
+RUN source install.sh
 
 RUN echo $NVM_DIR
 
