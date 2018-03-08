@@ -14,6 +14,8 @@ RUN git clone https://github.com/lambertrocher/EasyFlight.git
 
 RUN apt-get install -y curl
 
+RUN apt-get install -y wget
+
 RUN wget https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 
 RUN source install.sh
