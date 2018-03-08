@@ -16,9 +16,9 @@ RUN apt-get install -y curl
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 
-RUN nvm install 7
-
 RUN export NVM_DIR="/root/.nvm"
+
+RUN nvm install 7
 
 RUN npm --version
 
