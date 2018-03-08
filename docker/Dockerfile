@@ -18,6 +18,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 
 RUN export NVM_DIR="/root/.nvm"
 
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 RUN echo $NVM_DIR
 
 RUN nvm install 7
