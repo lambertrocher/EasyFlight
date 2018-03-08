@@ -18,7 +18,7 @@ RUN apt-get install -y wget
 
 RUN wget https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 
-RUN source install.sh
+RUN source ./install.sh
 
 RUN echo $NVM_DIR
 
