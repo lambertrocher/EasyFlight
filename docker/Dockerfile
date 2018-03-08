@@ -24,6 +24,8 @@ RUN ./install.sh; export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$
 
 #RUN echo $NVM_DIR
 
+RUN node --version
+
 RUN npm --version
 
 WORKDIR "/EasyFlight/ionic4j"
