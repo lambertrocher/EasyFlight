@@ -22,6 +22,8 @@ RUN chmod +x ./install.sh
 
 RUN ./install.sh
 
+RUN export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 RUN echo $NVM_DIR
 
 RUN nvm install 7
