@@ -22,4 +22,4 @@ RUN chmod +x ./install.sh
 
 RUN ./install.sh; export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm install 7; node --version; npm --version; cd "/EasyFlight/ionic4j"; npm install --loglevel verbose; cd"/EasyFlight/backend"; npm install --loglevel verbose
 
-CMD cd "/EasyFlight/backend"; mvn
+RUN cd "/EasyFlight/backend"; mvn
