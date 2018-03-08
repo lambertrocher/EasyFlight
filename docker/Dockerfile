@@ -18,6 +18,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 
 RUN nvm install 7
 
+RUN export NVM_DIR="/root/.nvm"
+
 RUN npm --version
 
 WORKDIR "/EasyFlight/ionic4j"
