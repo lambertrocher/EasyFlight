@@ -12,6 +12,8 @@ RUN apt-get install -y default-jdk
 
 RUN git clone https://github.com/lambertrocher/EasyFlight.git
 
+RUN apt-get install curl
+
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 
 RUN nvm install 7
