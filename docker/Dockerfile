@@ -13,8 +13,8 @@ RUN apt-get install -y default-jdk
 RUN git clone https://github.com/lambertrocher/EasyFlight.git
 
 WORKDIR "/EasyFlight/ionic4j"
-RUN npm install
+RUN npm install --loglevel verbose
 WORKDIR "/EasyFlight/backend"
-RUN npm install
+RUN npm install --loglevel verbose
 
 CMD mvn
