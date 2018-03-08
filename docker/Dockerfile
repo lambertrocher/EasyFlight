@@ -20,12 +20,6 @@ RUN wget https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 
 RUN chmod +x ./install.sh
 
-RUN ./install.sh; export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm install 7; node --version
-RUN npm --version
-
-WORKDIR "/EasyFlight/ionic4j"
-#RUN npm install --loglevel verbose
-WORKDIR "/EasyFlight/backend"
-#RUN npm install --loglevel verbose
+RUN ./install.sh; export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm install 7; node --version; npm --version; cd "/EasyFlight/ionic4j"; npm install --loglevel verbose; cd"/EasyFlight/backend"; npm install --loglevel verbose
 
 #CMD mvn
