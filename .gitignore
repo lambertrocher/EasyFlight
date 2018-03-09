@@ -1,3 +1,4 @@
 ./backend/node_modules
 ./ionic4j/node_modules
 launch.sh
+./backend/target
