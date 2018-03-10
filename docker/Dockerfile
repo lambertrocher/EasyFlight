@@ -22,7 +22,7 @@ RUN chmod +x ./install.sh
 
 RUN ./install.sh; export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"; nvm install 7; node --version; npm --version; cd "/EasyFlight/ionic4j"; npm install --loglevel verbose; cd"/EasyFlight/backend"; npm install --loglevel verbose
 
-ADD /home/ubuntu/pass.sh /EasyFlight/pass.sh
+ADD pass.sh /EasyFlight/pass.sh
 
 RUN chmod +x pass.sh
 
