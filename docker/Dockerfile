@@ -26,4 +26,4 @@ ADD pass.sh /EasyFlight/pass.sh
 
 RUN chmod +x /EasyFlight/pass.sh
 
-CMD cd "/EasyFlight"; ./pass.sh; cd backend; chmod +x mvnw; ls; ./mvnw
+CMD cd "/EasyFlight"; ./pass.sh; cd backend; chmod +x mvnw; ls -al; ./mvnw
