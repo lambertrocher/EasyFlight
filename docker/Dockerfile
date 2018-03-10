@@ -24,6 +24,6 @@ RUN ./install.sh; export NVM_DIR="/root/.nvm"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$
 
 ADD pass.sh /EasyFlight/pass.sh
 
-RUN chmod +x pass.sh
+RUN chmod +x /EasyFlight/pass.sh
 
 CMD cd "/EasyFlight"; ./pass.sh; cd backend; chmod +x mvnw; ./mvnw
