@@ -35,4 +35,8 @@ export class HomePage implements OnInit {
     this.loginService.logout();
     this.app.getRootNavs()[0].setRoot(FirstRunPage);
   }
+
+  mass() {
+    this.navCtrl.push('MassPage');
+  }
 }

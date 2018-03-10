@@ -12,7 +12,12 @@
 </ion-header>
 
 <ion-content padding>
-  <p>{{ 'WELCOME_INTRO' | translate }}</p>
-
-  <span class="hipster"></span>
+  <!-- <p>{{ 'WELCOME_INTRO' | translate }}</p> 
+  <span class="hipster"></span> -->
+	<p>Liste des outils</p>
+	<ion-buttons end>
+      <button ion-button (click)="mass()">
+        Masse et Centrage
+      </button>
+    </ion-buttons>
 </ion-content>
