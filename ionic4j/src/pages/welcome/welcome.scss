@@ -1,9 +1,24 @@
 page-welcome {
 
-    .hipster {
-        width: 209px;
-        height: 300px;
-        margin: 20px auto;
-        display: block;
+    .truc {
+      height:110%;
+      width:110%;
+      background-image:url("../../assets/img/plane_wallpaper2.jpg");/*your background image*/
+      background-repeat:no-repeat;/*we want to have one single image not a repeated one*/
+      background-size:cover;/*this sets the image to fullscreen covering the whole screen*/
+      margin:-5%
     }
+
+  .top-middle {
+    top : 12%;
+  }
+
+  .middle {
+    top : 35%;
+  }
+
+  .large-title {
+    font-size:30px;
+  }
+
 }

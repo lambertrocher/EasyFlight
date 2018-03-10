@@ -1,18 +1,20 @@
-<ion-header>
-    <ion-navbar>
-        <ion-title>
-            Welcome onboard !
-        </ion-title>
-    </ion-navbar>
-</ion-header>
+
 
 <ion-content padding>
-    <span class="hipster"></span>
-    <div>
-        <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
-
-        <p>Don't have an account yet?</p>
-        <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
-
+    <!--<ion-img width="100%" height="30%" src="../../assets/img/plane_wallpaper.jpg"></ion-img>-->
+    <div class="truc">
     </div>
+</ion-content>
+
+<ion-content class="top-middle" text-center>
+    <p class="large-title" ion-text color="light">Welcome onboard !</p>
+</ion-content>
+
+<ion-content class="middle" text-center>
+
+    <button ion-button round outline large color="light" (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
+
+    <p ion-text color="light">Don't have an account yet ?</p>
+
+    <button ion-button round outline large color="light" (click)="signup()">{{ 'SIGNUP' | translate }}</button>
 </ion-content>
