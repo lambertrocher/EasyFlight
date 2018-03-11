@@ -9,3 +9,5 @@ backend/target/
 ionic4j/www/build/**
 ionic4j/.sourcemaps/**
 ionic4j/www/build/6.js
+ionic4j/plugins/**
+ionic4j/platforms/**

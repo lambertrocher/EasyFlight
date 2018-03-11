@@ -6,6 +6,7 @@ import { Config, Nav, Platform } from 'ionic-angular';
 
 import { MainPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
+import { WheelSelector} from "@ionic-native/wheel-selector";
 
 @Component({
   template: `<ion-menu [content]="content">

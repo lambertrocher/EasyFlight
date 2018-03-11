@@ -17,6 +17,7 @@ import { AuthServerProvider } from '../providers/auth/auth-jwt.service';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { AuthInterceptor } from '../providers/auth/auth-interceptor';
 import { EntityPageModule } from '../pages/entities/entity.module';
+import { WheelSelector } from '@ionic-native/wheel-selector';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -71,6 +72,7 @@ export function provideSettings(storage: Storage) {
     LocalStorageService,
     SessionStorageService,
     Camera,
+    WheelSelector,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
