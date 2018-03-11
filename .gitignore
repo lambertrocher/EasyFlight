@@ -6,3 +6,4 @@ backend/target/
 .idea/modules.xml
 .idea/EasyFlight.iml
 .idea/vcs.xml
+ionic4j/www/build/
