@@ -45,4 +45,16 @@ export class PreparationPage implements OnInit {
     preparation() {
         this.navCtrl.push('PreparationPage');
     }
+
+    public event = {
+        month: '2018-01-01',
+        timeStarts: '07:43',
+        timeEnds: '1990-02-20'
+    };
+
+    public poids_pilote: number = 0;
+    public poids_passager1: number = 0;
+    public poids_passager2: number = 0;
+    public poids_passager3: number = 0;
+
 }

@@ -3,7 +3,6 @@ import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
-import { PreparationPage } from '../pages';
 
 /**
  * Generated class for the SummaryPage page.

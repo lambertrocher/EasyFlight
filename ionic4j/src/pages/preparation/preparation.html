@@ -15,4 +15,54 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Heure</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.timeStarts"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-item>
+    <ion-label>Aérodrômes</ion-label>
+    <ion-select [(ngModel)]="airport" multiple="true" cancelText="Cancel" okText="OK">
+      <ion-option value="LFLS">LFLS</ion-option>
+      <ion-option value="LFLL">LFLL</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Avion</ion-label>
+    <ion-select [(ngModel)]="plane" multiple="false" cancelText="Cancel" okText="OK">
+      <ion-option value="F-GAOX">F-GAOX</ion-option>
+      <ion-option value="A380">A380</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+
+  <ion-item>
+    <ion-label>Pilote
+      <ion-badge item-end color="primary">0</ion-badge>
+    </ion-label>
+  </ion-item>
+
+
+  <!--<ion-list>-->
+    <!--<ion-list-header>-->
+      <!--Poids pilote-->
+      <!--<ion-badge item-end color="secondary">{{poids_pilote}}</ion-badge>-->
+    <!--</ion-list-header>-->
+    <!--<ion-item>-->
+      <!--<ion-range min="0" max="120" pin="true" [(ngModel)]="poids_pilote" color="secondary">-->
+        <!--<ion-label range-left>0</ion-label>-->
+      <!--</ion-range>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
 </ion-content>
