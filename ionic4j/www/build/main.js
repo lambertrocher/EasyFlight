@@ -1,4 +1,4 @@
-webpackJsonp([8],{
+webpackJsonp([9],{
 
 /***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -6,7 +6,7 @@ webpackJsonp([8],{
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_principal_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_principal_service__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_auth_jwt_service__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(64);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -71,24 +71,6 @@ var LoginService = (function () {
 /***/ }),
 
 /***/ 168:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(77);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(697);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_user__ = __webpack_require__(698);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__settings_settings__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__user_user__["a"]; });
-
-
-
-
-//# sourceMappingURL=providers.js.map
-
-/***/ }),
-
-/***/ 169:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -196,6 +178,24 @@ var Principal = (function () {
 
 /***/ }),
 
+/***/ 169:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_api__ = __webpack_require__(77);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(697);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_user__ = __webpack_require__(698);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__settings_settings__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__user_user__["a"]; });
+
+
+
+
+//# sourceMappingURL=providers.js.map
+
+/***/ }),
+
 /***/ 182:
 /***/ (function(module, exports) {
 
@@ -222,39 +222,39 @@ var map = {
 	],
 	"../pages/home/home.module": [
 		718,
-		18
+		8
 	],
 	"../pages/login/login.module": [
 		719,
-		17
+		7
 	],
 	"../pages/mass/mass.module": [
-		734,
-		16
+		720,
+		6
 	],
 	"../pages/menu/menu.module": [
-		720,
-		15
+		721,
+		5
 	],
 	"../pages/settings/settings.module": [
-		721,
-		14
+		722,
+		4
 	],
 	"../pages/signup/signup.module": [
 		723,
-		13
+		3
 	],
 	"../pages/tabs/tabs.module": [
-		724,
-		12
+		725,
+		2
 	],
 	"../pages/tutorial/tutorial.module": [
-		725,
-		11
+		726,
+		1
 	],
 	"../pages/welcome/welcome.module": [
-		722,
-		10
+		724,
+		0
 	]
 };
 function webpackAsyncContext(req) {
@@ -451,9 +451,10 @@ var AuthServerProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirstRunPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MainPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Tab1Root; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Tab2Root; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Tab3Root; });
+/* unused harmony export Tab1Root */
+/* unused harmony export Tab2Root */
+/* unused harmony export Tab3Root */
+/* unused harmony export Tab4Root */
 // The page the user lands on after opening the app and without a session
 var FirstRunPage = 'WelcomePage';
 // The main page the user will see as they use the app over a long period of time.
@@ -462,7 +463,8 @@ var MainPage = 'TabsPage';
 // The initial root pages for our tabs (remove if not using tabs)
 var Tab1Root = 'HomePage';
 var Tab2Root = 'EntityPage';
-var Tab3Root = 'SettingsPage';
+var Tab3Root = 'EntityPage';
+var Tab4Root = 'SettingsPage';
 //# sourceMappingURL=pages.js.map
 
 /***/ }),
@@ -498,10 +500,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngx_translate_core__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngx_translate_http_loader__ = __webpack_require__(404);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_providers__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_providers__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(716);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_login_login_service__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_auth_principal_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_auth_principal_service__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_auth_account_service__ = __webpack_require__(251);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_auth_auth_jwt_service__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ngx_webstorage__ = __webpack_require__(141);
@@ -574,10 +576,11 @@ var AppModule = (function () {
                         { loadChildren: '../pages/entities/entity.module#EntityPageModule', name: 'EntityPage', segment: 'entity', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/mass/mass.module#MassPageModule', name: 'MassPage', segment: 'mass', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/menu/menu.module#MenuPageModule', name: 'MenuPage', segment: 'menu', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tutorial/tutorial.module#TutorialPageModule', name: 'TutorialPage', segment: 'tutorial', priority: 'low', defaultHistory: [] }
                     ]
@@ -854,7 +857,7 @@ var User = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_pages__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_providers__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

@@ -98,7 +98,7 @@ var MassPage = (function () {
     };
     MassPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-mass',template:/*ion-inline-start:"/home/remi/Cours/EasyFlight/EasyFlight/EasyFlight/ionic4j/src/pages/mass/mass.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Calcul de masse et centrage\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n</ion-content>\n'/*ion-inline-end:"/home/remi/Cours/EasyFlight/EasyFlight/EasyFlight/ionic4j/src/pages/mass/mass.html"*/
+            selector: 'page-mass',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\mass\mass.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Calcul de masse et centrage\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\mass\mass.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__["a" /* Principal */],

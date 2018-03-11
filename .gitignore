@@ -7,3 +7,5 @@ backend/target/
 .idea/EasyFlight.iml
 .idea/vcs.xml
 ionic4j/www/build/
+ionic4j/.sourcemaps/4.js.map
+ionic4j/www/build/6.js
