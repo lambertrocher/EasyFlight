@@ -10,33 +10,34 @@ import { LoginService } from '../../providers/login/login.service';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit {
-  account: Account;
+    account: Account;
 
-  constructor(public navCtrl: NavController,
-              private principal: Principal,
-              private app: App,
-              private loginService: LoginService) { }
+    constructor(public navCtrl: NavController,
+                private principal: Principal,
+                private app: App,
+                private loginService: LoginService) {
+    }
 
-  ngOnInit() {
-    this.principal.identity().then((account) => {
-      if (account === null) {
+    ngOnInit() {
+        this.principal.identity().then((account) => {
+            if (account === null) {
+                this.app.getRootNavs()[0].setRoot(FirstRunPage);
+            } else {
+                this.account = account;
+            }
+        });
+    }
+
+    isAuthenticated() {
+        return this.principal.isAuthenticated();
+    }
+
+    logout() {
+        this.loginService.logout();
         this.app.getRootNavs()[0].setRoot(FirstRunPage);
-      } else {
-        this.account = account;
-      }
-    });
-  }
+    }
 
-  isAuthenticated() {
-    return this.principal.isAuthenticated();
-  }
-
-  logout() {
-    this.loginService.logout();
-    this.app.getRootNavs()[0].setRoot(FirstRunPage);
-  }
-
-  mass() {
-    this.navCtrl.push('MassPage');
-  }
+    mass() {
+        this.navCtrl.push('MassPage');
+    }
 }

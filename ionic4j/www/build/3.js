@@ -1,15 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 723:
+/***/ 726:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupPageModule", function() { return SignupPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SummaryPageModule", function() { return SummaryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__signup__ = __webpack_require__(732);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__summary__ = __webpack_require__(738);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,41 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var SignupPageModule = (function () {
-    function SignupPageModule() {
+var SummaryPageModule = (function () {
+    function SummaryPageModule() {
     }
-    SignupPageModule = __decorate([
+    SummaryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__signup__["a" /* SignupPage */],
+                __WEBPACK_IMPORTED_MODULE_2__summary__["a" /* SummaryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__signup__["a" /* SignupPage */]),
-                __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__summary__["a" /* SummaryPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_3__signup__["a" /* SignupPage */]
-            ]
         })
-    ], SignupPageModule);
-    return SignupPageModule;
+    ], SummaryPageModule);
+    return SummaryPageModule;
 }());
 
-//# sourceMappingURL=signup.module.js.map
+//# sourceMappingURL=summary.module.js.map
 
 /***/ }),
 
-/***/ 732:
+/***/ 738:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignupPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SummaryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_providers__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,59 +62,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var SignupPage = (function () {
-    function SignupPage(navCtrl, user, toastCtrl, translateService) {
-        var _this = this;
+/**
+ * Generated class for the SummaryPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SummaryPage = (function () {
+    function SummaryPage(navCtrl, principal, app, loginService) {
         this.navCtrl = navCtrl;
-        this.user = user;
-        this.toastCtrl = toastCtrl;
-        this.translateService = translateService;
-        // The account fields for the login form.
-        // If you're using the username field with or without email, make
-        // sure to add it to the type
-        this.account = {
-            login: '',
-            email: '',
-            firstName: '',
-            lastName: '',
-            password: '',
-            langKey: 'en'
-        };
-        this.translateService.get('SIGNUP_ERROR').subscribe(function (value) {
-            _this.signupErrorString = value;
-        });
+        this.principal = principal;
+        this.app = app;
+        this.loginService = loginService;
     }
-    SignupPage.prototype.doSignup = function () {
+    SummaryPage.prototype.ngOnInit = function () {
         var _this = this;
-        // set login to same as email
-        this.account.login = this.account.email;
-        // Attempt to login in through our User service
-        this.user.signup(this.account).subscribe(function (resp) {
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages__["b" /* MainPage */]);
-        }, function (err) {
-            console.log('error in signup', err);
-            // Unable to sign up
-            var toast = _this.toastCtrl.create({
-                message: _this.signupErrorString,
-                duration: 3000,
-                position: 'top'
-            });
-            toast.present();
+        this.principal.identity().then(function (account) {
+            if (account === null) {
+                _this.app.getRootNavs()[0].setRoot(__WEBPACK_IMPORTED_MODULE_3__pages__["a" /* FirstRunPage */]);
+            }
+            else {
+                _this.account = account;
+            }
         });
     };
-    SignupPage = __decorate([
+    SummaryPage.prototype.isAuthenticated = function () {
+        return this.principal.isAuthenticated();
+    };
+    SummaryPage.prototype.logout = function () {
+        this.loginService.logout();
+        this.app.getRootNavs()[0].setRoot(__WEBPACK_IMPORTED_MODULE_3__pages__["a" /* FirstRunPage */]);
+    };
+    SummaryPage.prototype.summary = function () {
+        this.navCtrl.push('SummaryPage');
+    };
+    SummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\signup\signup.html"*/'<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>{{ \'SIGNUP_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <form (submit)="doSignup()">\n\n    <ion-list>\n\n\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'NAME\' | translate }}</ion-label>\n\n        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'EMAIL\' | translate }}</ion-label>\n\n        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>\n\n      </ion-item>\n\n\n\n      <!--\n\n      Want to add a Username? Here you go:\n\n\n\n      <ion-item>\n\n        <ion-label floating>Username</ion-label>\n\n        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>\n\n      </ion-item>\n\n      -->\n\n\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'PASSWORD\' | translate }}</ion-label>\n\n        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>\n\n      </ion-item>\n\n\n\n      <div padding>\n\n        <button ion-button color="primary" block>{{ \'SIGNUP_BUTTON\' | translate }}</button>\n\n      </div>\n\n\n\n    </ion-list>\n\n  </form>\n\n</ion-content>'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\signup\signup.html"*/
+            selector: 'page-summary',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\summary\summary.html"*/'<!--\n  Generated template for the SummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Résumé du vol</ion-title>\n\n\n    <button ion-button margin-left="20px">\n      <div><ion-icon name=\'paper-plane\'></ion-icon>\n        <br>\n        <label style="font-size: 12px">Nouveau vol</label>\n      </div>\n    </button>\n\n    <ion-buttons end>\n      <button ion-button (click)="logout()" padding-right="20px">\n        Logout\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\summary\summary.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_providers__["c" /* User */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
-    ], SignupPage);
-    return SignupPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__["a" /* Principal */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* App */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__["a" /* LoginService */]])
+    ], SummaryPage);
+    return SummaryPage;
 }());
 
-//# sourceMappingURL=signup.js.map
+//# sourceMappingURL=summary.js.map
 
 /***/ })
 

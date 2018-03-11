@@ -25694,6 +25694,10 @@ ion-navbar.toolbar {
   }
 }
 
+ion-icon {
+  font-size: 25px;
+}
+
 page-tutorial .toolbar-background {
   background: transparent;
   border-color: transparent;

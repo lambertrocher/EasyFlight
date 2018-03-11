@@ -32,10 +32,10 @@ export class TabsPage {
   //   });
   // }
 
-    tab1Root = 'HomePage';
-    tab2Root = 'EntityPage';
-    tab3Root = 'SettingsPage';
-    tab4Root = 'SettingsPage';
+    tab1Root = 'SummaryPage';
+    tab2Root = 'MeteoPage';
+    tab3Root = 'NotamsPage';
+    tab4Root = 'MassPage';
 
     constructor() {
 

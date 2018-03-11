@@ -1,15 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 719:
+/***/ 722:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeteoPageModule", function() { return MeteoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login__ = __webpack_require__(728);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__meteo__ = __webpack_require__(734);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,39 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var LoginPageModule = (function () {
-    function LoginPageModule() {
+var MeteoPageModule = (function () {
+    function MeteoPageModule() {
     }
-    LoginPageModule = __decorate([
+    MeteoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__meteo__["a" /* MeteoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */]),
-                __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__meteo__["a" /* MeteoPage */]),
             ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_3__login__["a" /* LoginPage */]
-            ]
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], MeteoPageModule);
+    return MeteoPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=meteo.module.js.map
 
 /***/ }),
 
-/***/ 728:
+/***/ 734:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MeteoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(381);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -68,52 +62,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LoginPage = (function () {
-    function LoginPage(navCtrl, loginService, toastCtrl, translateService) {
-        var _this = this;
+/**
+ * Generated class for the MeteoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var MeteoPage = (function () {
+    function MeteoPage(navCtrl, principal, app, loginService) {
         this.navCtrl = navCtrl;
+        this.principal = principal;
+        this.app = app;
         this.loginService = loginService;
-        this.toastCtrl = toastCtrl;
-        this.translateService = translateService;
-        // The account fields for the login form.
-        this.account = {
-            username: '',
-            password: '',
-            rememberMe: false,
-        };
-        this.translateService.get('LOGIN_ERROR').subscribe(function (value) {
-            _this.loginErrorString = value;
-        });
     }
-    // Attempt to login in through our User service
-    LoginPage.prototype.doLogin = function () {
+    MeteoPage.prototype.ngOnInit = function () {
         var _this = this;
-        this.loginService.login(this.account).then(function (response) {
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages__["b" /* MainPage */]);
-        }, function (err) {
-            // Unable to log in
-            _this.account.password = '';
-            var toast = _this.toastCtrl.create({
-                message: _this.loginErrorString,
-                duration: 3000,
-                position: 'top'
-            });
-            toast.present();
+        this.principal.identity().then(function (account) {
+            if (account === null) {
+                _this.app.getRootNavs()[0].setRoot(__WEBPACK_IMPORTED_MODULE_3__pages__["a" /* FirstRunPage */]);
+            }
+            else {
+                _this.account = account;
+            }
         });
     };
-    LoginPage = __decorate([
+    MeteoPage.prototype.isAuthenticated = function () {
+        return this.principal.isAuthenticated();
+    };
+    MeteoPage.prototype.logout = function () {
+        this.loginService.logout();
+        this.app.getRootNavs()[0].setRoot(__WEBPACK_IMPORTED_MODULE_3__pages__["a" /* FirstRunPage */]);
+    };
+    MeteoPage.prototype.meteo = function () {
+        this.navCtrl.push('MeteoPage');
+    };
+    MeteoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\login\login.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{ \'LOGIN_TITLE\' | translate }}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <form (submit)="doLogin()">\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'USERNAME\' | translate }}</ion-label>\n\n        <ion-input type="string" [(ngModel)]="account.username" name="username"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label fixed>{{ \'PASSWORD\' | translate }}</ion-label>\n\n        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-label>{{ \'REMEMBER_ME\' | translate }}</ion-label>\n\n        <ion-toggle [(ngModel)]="account.rememberMe" name="rememberMe"></ion-toggle>\n\n      </ion-item>\n\n      <div padding>\n\n        <button ion-button color="primary" block>{{ \'LOGIN_BUTTON\' | translate }}</button>\n\n      </div>\n\n    </ion-list>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\login\login.html"*/
+            selector: 'page-meteo',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\meteo\meteo.html"*/'<!--\n  Generated template for the MeteoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Météo</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\meteo\meteo.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__["a" /* LoginService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__["a" /* Principal */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* App */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__["a" /* LoginService */]])
+    ], MeteoPage);
+    return MeteoPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=meteo.js.map
 
 /***/ })
 

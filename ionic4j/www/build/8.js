@@ -1,15 +1,15 @@
 webpackJsonp([8],{
 
-/***/ 718:
+/***/ 721:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuPageModule", function() { return MenuPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home__ = __webpack_require__(727);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__menu__ = __webpack_require__(733);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,40 +20,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = (function () {
-    function HomePageModule() {
+var MenuPageModule = (function () {
+    function MenuPageModule() {
     }
-    HomePageModule = __decorate([
+    MenuPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__home__["a" /* HomePage */]
+                __WEBPACK_IMPORTED_MODULE_3__menu__["a" /* MenuPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__menu__["a" /* MenuPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["b" /* TranslateModule */].forChild()
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_3__home__["a" /* HomePage */]
+                __WEBPACK_IMPORTED_MODULE_3__menu__["a" /* MenuPage */]
             ]
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], MenuPageModule);
+    return MenuPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=menu.module.js.map
 
 /***/ }),
 
-/***/ 727:
+/***/ 733:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__ = __webpack_require__(167);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,50 +62,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
-var HomePage = (function () {
-    function HomePage(navCtrl, principal, app, loginService) {
+var MenuPage = (function () {
+    function MenuPage(navCtrl) {
         this.navCtrl = navCtrl;
-        this.principal = principal;
-        this.app = app;
-        this.loginService = loginService;
+        this.rootPage = 'ContentPage';
+        // used for an example of ngFor and navigation
+        this.pages = [
+            { title: 'Sign in', component: 'LoginPage' },
+            { title: 'Signup', component: 'SignupPage' }
+        ];
     }
-    HomePage.prototype.ngOnInit = function () {
-        var _this = this;
-        this.principal.identity().then(function (account) {
-            if (account === null) {
-                _this.app.getRootNavs()[0].setRoot(__WEBPACK_IMPORTED_MODULE_3__pages__["a" /* FirstRunPage */]);
-            }
-            else {
-                _this.account = account;
-            }
-        });
+    MenuPage.prototype.ionViewDidLoad = function () {
+        console.log('Hello MenuPage Page');
     };
-    HomePage.prototype.isAuthenticated = function () {
-        return this.principal.isAuthenticated();
+    MenuPage.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
     };
-    HomePage.prototype.logout = function () {
-        this.loginService.logout();
-        this.app.getRootNavs()[0].setRoot(__WEBPACK_IMPORTED_MODULE_3__pages__["a" /* FirstRunPage */]);
-    };
-    HomePage.prototype.mass = function () {
-        this.navCtrl.push('MassPage');
-    };
-    HomePage = __decorate([
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+    ], MenuPage.prototype, "nav", void 0);
+    MenuPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Welcome, {{account?.firstName}}!\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button (click)="logout()">\n\n        Logout\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <!-- <p>{{ \'WELCOME_INTRO\' | translate }}</p> \n\n  <span class="hipster"></span> -->\n\n	<p>Liste des outils</p>\n\n	<ion-buttons end>\n\n      <button ion-button (click)="mass()">\n\n        Masse et Centrage\n\n      </button>\n\n    </ion-buttons>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\home\home.html"*/
+            selector: 'page-menu',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\menu\menu.html"*/'<ion-menu [content]="content">\n\n  <ion-content>\n\n    <ion-list>\n\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n        {{p.title}}\n\n      </button>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n\n\n<ion-nav #content [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\menu\menu.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_auth_principal_service__["a" /* Principal */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* App */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_login_login_service__["a" /* LoginService */]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
+    ], MenuPage);
+    return MenuPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=menu.js.map
 
 /***/ })
 

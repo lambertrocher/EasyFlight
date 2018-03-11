@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 725:
+/***/ 727:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs__ = __webpack_require__(734);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs__ = __webpack_require__(739);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var TabsPageModule = (function () {
 
 /***/ }),
 
-/***/ 734:
+/***/ 739:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -80,14 +80,14 @@ var TabsPage = (function () {
         //     this.tab4Title = values['TAB4_TITLE'];
         //   });
         // }
-        this.tab1Root = 'HomePage';
-        this.tab2Root = 'EntityPage';
-        this.tab3Root = 'SettingsPage';
-        this.tab4Root = 'SettingsPage';
+        this.tab1Root = 'SummaryPage';
+        this.tab2Root = 'MeteoPage';
+        this.tab3Root = 'NotamsPage';
+        this.tab4Root = 'MassPage';
     }
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\tabs\tabs.html"*/'<!--<ion-tabs>-->\n\n  <!--<ion-tab [root]="tab1Root" [tabTitle]="tab1Title" tabIcon="home"></ion-tab>-->\n\n  <!--<ion-tab [root]="tab2Root" [tabTitle]="tab2Title" tabIcon="menu"></ion-tab>-->\n\n  <!--<ion-tab [root]="tab3Root" [tabTitle]="tab3Title" tabIcon="cog"></ion-tab>-->\n\n  <!--<ion-tab [root]="tab4Root" [tabTitle]="tab4Title" tabIcon="cog"></ion-tab>-->\n\n<!--</ion-tabs>-->\n\n\n\n<ion-tabs tabs-only>\n\n  <ion-tab tabTitle="Résumé" tabIcon="ios-paper" [root]="tab1Root"></ion-tab>\n\n  <ion-tab tabTitle="Météo" tabIcon="partly-sunny" [root]="tab2Root"></ion-tab>\n\n  <ion-tab tabTitle="Notams" tabIcon="warning" [root]="tab3Root"></ion-tab>\n\n  <ion-tab tabTitle="Masse & centrage" tabIcon="calculator" [root]="tab4Root"></ion-tab>\n\n</ion-tabs>'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\tabs\tabs.html"*/
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\tabs\tabs.html"*/'<!--<ion-tabs>-->\n\n  <!--<ion-tab [root]="tab1Root" [tabTitle]="tab1Title" tabIcon="home"></ion-tab>-->\n\n  <!--<ion-tab [root]="tab2Root" [tabTitle]="tab2Title" tabIcon="menu"></ion-tab>-->\n\n  <!--<ion-tab [root]="tab3Root" [tabTitle]="tab3Title" tabIcon="cog"></ion-tab>-->\n\n  <!--<ion-tab [root]="tab4Root" [tabTitle]="tab4Title" tabIcon="cog"></ion-tab>-->\n\n<!--</ion-tabs>-->\n\n\n\n<ion-tabs tabs-only tabsPlacement="bottom">\n\n  <ion-tab tabTitle="Résumé" tabIcon="ios-paper" [root]="tab1Root"></ion-tab>\n\n  <ion-tab tabTitle="Météo" tabIcon="partly-sunny" [root]="tab2Root"></ion-tab>\n\n  <ion-tab tabTitle="Notams" tabIcon="warning" [root]="tab3Root"></ion-tab>\n\n  <ion-tab tabTitle="Masse & centrage" tabIcon="calculator" [root]="tab4Root"></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"C:\Users\Lambert\Documents\GitHub\EasyFlight\ionic4j\src\pages\tabs\tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
