@@ -3,7 +3,6 @@ import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
-import {WheelSelector} from "@ionic-native/wheel-selector";
 
 /**
  * Generated class for the PreparationPage page.
@@ -23,8 +22,7 @@ export class PreparationPage implements OnInit {
     constructor(public navCtrl: NavController,
                 private principal: Principal,
                 private app: App,
-                private loginService: LoginService,
-                private selector: WheelSelector) { }
+                private loginService: LoginService) { }
 
     ngOnInit() {
         this.principal.identity().then((account) => {
@@ -59,37 +57,5 @@ export class PreparationPage implements OnInit {
     public poids_passager1: number = 0;
     public poids_passager2: number = 0;
     public poids_passager3: number = 0;
-
-
-    jsonData = {
-    numbers: [
-        { description: "1" },
-        { description: "2" },
-        { description: "3" }
-    ]};
-
-    selectANumber() {
-        this.selector.show({
-            title: "How Many?",
-            items: [
-                this.jsonData.numbers
-            ],
-        }).then(
-            result => {
-                console.log(result[0].description + ' at index: ' + result[0].index);
-            },
-            err => console.log('Error: ', err)
-        );
-    }
-
-
-
-
-
-
-
-
-
-
 
 }

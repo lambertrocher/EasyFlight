@@ -18,7 +18,7 @@
   <ion-list>
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+      <ion-datetime displayFormat="DD MMM  YYYY" [(ngModel)]="event.month"></ion-datetime>
     </ion-item>
 
     <ion-item>
@@ -46,23 +46,110 @@
 
 
 
-  <ion-item>
-    <ion-label>Pilote
-      <ion-badge item-end color="primary" (click)="selectANumber()">0</ion-badge>
-    </ion-label>
-  </ion-item>
+  <!--<ion-item>-->
+    <!--<ion-label>Pilote-->
+      <!--<ion-badge item-end color="primary">0</ion-badge>-->
+    <!--</ion-label>-->
+  <!--</ion-item>-->
 
 
   <!--<ion-list>-->
     <!--<ion-list-header>-->
       <!--Poids pilote-->
-      <!--<ion-badge item-end color="secondary">{{poids_pilote}}</ion-badge>-->
+      <!--<ion-badge item-end color="primary">{{poids_pilote}}</ion-badge>-->
     <!--</ion-list-header>-->
     <!--<ion-item>-->
-      <!--<ion-range min="0" max="120" pin="true" [(ngModel)]="poids_pilote" color="secondary">-->
-        <!--<ion-label range-left>0</ion-label>-->
+      <!--<ion-range min="0" max="120" pin="false" [(ngModel)]="poids_pilote" color="primary">-->
+        <!--&lt;!&ndash;<ion-label range-left>0</ion-label>&ndash;&gt;-->
       <!--</ion-range>-->
     <!--</ion-item>-->
   <!--</ion-list>-->
 
-</ion-content>
+  <!--<ion-list>-->
+    <!--<ion-list-header>-->
+      <!--Poids passager avant-->
+      <!--<ion-badge item-end color="primary">{{poids_passager1}}</ion-badge>-->
+    <!--</ion-list-header>-->
+    <!--<ion-item>-->
+      <!--<ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager1" color="primary">-->
+        <!--&lt;!&ndash;<ion-label range-left>0</ion-label>&ndash;&gt;-->
+      <!--</ion-range>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
+  <!--<ion-list>-->
+    <!--<ion-list-header>-->
+      <!--Poids passager arrière 1-->
+      <!--<ion-badge item-end color="primary">{{poids_passager2}}</ion-badge>-->
+    <!--</ion-list-header>-->
+    <!--<ion-item>-->
+      <!--<ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager2" color="primary">-->
+        <!--&lt;!&ndash;<ion-label range-left>0</ion-label>&ndash;&gt;-->
+      <!--</ion-range>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
+  <!--<ion-list>-->
+    <!--<ion-list-header>-->
+      <!--Poids passager arrière 2-->
+      <!--<ion-badge item-end color="primary">{{poids_passager3}}</ion-badge>-->
+    <!--</ion-list-header>-->
+    <!--<ion-item>-->
+      <!--<ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager3" color="primary">-->
+        <!--&lt;!&ndash;<ion-label range-left>0</ion-label>&ndash;&gt;-->
+      <!--</ion-range>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
+
+
+
+      <ion-list>
+        <ion-item> Poids de l'équipage</ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          Poids pilote
+          <ion-badge item-end color="primary">Poids pilote : {{poids_pilote}} kg</ion-badge>
+
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_pilote" color="primary">
+            <!--<ion-label range-left>0</ion-label>-->
+          </ion-range>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          Poids pilote
+          <ion-badge item-end color="primary">Poids passager avant : {{poids_passager1}} kg</ion-badge>
+
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager1" color="primary">
+            <!--<ion-label range-left>0</ion-label>-->
+          </ion-range>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          Poids pilote
+          <ion-badge item-end color="primary">Poids passager arrière 1 : {{poids_passager2}} kg</ion-badge>
+
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager2" color="primary">
+            <!--<ion-label range-left>0</ion-label>-->
+          </ion-range>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          Poids pilote
+          <ion-badge item-end color="primary">Poids passager arrière 2 : {{poids_passager3}} kg</ion-badge>
+
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager3" color="primary">
+            <!--<ion-label range-left>0</ion-label>-->
+          </ion-range>
+        </ion-item>
+      </ion-list>
+
+
+
