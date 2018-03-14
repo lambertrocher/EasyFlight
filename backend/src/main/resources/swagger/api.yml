@@ -2,5 +2,36 @@
 # This file will be used at compile time to generate Spring-MVC endpoint stubs using swagger-codegen
 swagger: "2.0"
 info:
-  version: 0.0.1
-paths: {}
+  description: "EasyFlight API"
+  version: "1.0.0"
+  title: "EasyFlight"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+- name: "EasyFlight"
+  description: "Everything to prepare your flight"
+  externalDocs:
+    description: "Find out more"
+    url: "http://EasyFlight.com"
+schemes:
+- "http"
+paths:
+  /notams/{airports}:
+    get:
+      parameters:
+        - in: path
+          name: airports   # Note the name is the same as in the path
+          required: true
+          type: string
+          minimum: 1
+          description: list of the airports
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid airports supplied"
+        404:
+          description: "Pet not found"
