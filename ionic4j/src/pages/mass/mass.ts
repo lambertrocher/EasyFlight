@@ -13,6 +13,7 @@ import { Api } from "../../providers/api/api";
 export class MassPage implements OnInit {
   account: Account;
   public rep;
+  avion;
 
   constructor(public navCtrl: NavController,
               private principal: Principal,
@@ -31,12 +32,13 @@ export class MassPage implements OnInit {
               this.account = account;
           }
       });
-      console.log("réponse de l'api");
-      this.api.get("avions").subscribe(response => {
-          console.log(response[0].id);
-          this.rep = response[0].id;
-      });
-      console.log(this.rep);
+      // console.log("réponse de l'api");
+      // this.api.get("avions").subscribe(response => {
+      //     console.log(response[0].id);
+      //     this.rep = response[0].id;
+      // });
+      // console.log(this.rep);
+      this.masse_et_centrage();
   }
 
   isAuthenticated() {
@@ -51,4 +53,20 @@ export class MassPage implements OnInit {
   mass() {
     this.navCtrl.push('MassPage');
   }
+
+  masse_et_centrage(){
+    let levierBagages;
+    let levierAvant;
+    let levierArriere;
+    let levierReservoir;
+      this.api.get("avions/3").subscribe(response => {
+          this.avion = response;
+          levierBagages = this.avion.levierBagages;
+          levierAvant = this.avion.levierPassagersAvant;
+          levierArriere = this.avion.levierPassagersArriere;
+          levierReservoir = this.avion.reservoir.levier;
+      });
+
+  }
+
 }
