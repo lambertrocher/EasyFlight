@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
-import { Api } from "../../providers/api/api";
+import { Api } from "../../providers/api/api"
+import {PreparationPage} from "../preparation/preparation";
+import {PreparationProvider} from "../../providers/preparation/preparation";
 
 @IonicPage()
 @Component({
@@ -11,6 +13,7 @@ import { Api } from "../../providers/api/api";
   templateUrl: 'mass.html'
 })
 export class MassPage implements OnInit {
+  @Input() preparation: PreparationPage;
   account: Account;
   public rep;
   avion;
@@ -20,6 +23,7 @@ export class MassPage implements OnInit {
               private app: App,
               private loginService: LoginService,
               private api: Api,
+              private preparationProvider: PreparationProvider,
               ) {
   }
 
@@ -65,8 +69,14 @@ export class MassPage implements OnInit {
           levierAvant = this.avion.levierPassagersAvant;
           levierArriere = this.avion.levierPassagersArriere;
           levierReservoir = this.avion.reservoir.levier;
+          console.log("mass.ts dit : poids = ", this.preparationProvider.poids_pilote)
       });
 
   }
+
+  ionViewWillEnter(){
+      this.masse_et_centrage();
+  }
+
 
 }

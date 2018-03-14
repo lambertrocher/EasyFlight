@@ -3,7 +3,7 @@ import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
-import {MassPage} from "../mass/mass";
+import { PreparationProvider} from "../../providers/preparation/preparation";
 
 /**
  * Generated class for the PreparationPage page.
@@ -23,7 +23,9 @@ export class PreparationPage implements OnInit{
     constructor(public navCtrl: NavController,
                 private principal: Principal,
                 private app: App,
-                private loginService: LoginService) { }
+                private loginService: LoginService,
+                private preparationProvider: PreparationProvider,
+) { }
 
     ngOnInit() {
         this.principal.identity().then((account) => {
@@ -61,7 +63,9 @@ export class PreparationPage implements OnInit{
     public poids_bagages: number = 0;
 
     onChange(event): void {
-        console.log("poids pilote", this.poids_pilote);
+        // console.log("poids pilote", this.poids_pilote);
+        console.log("event change");
+        this.preparationProvider.update_preparation(this.poids_pilote);
     }
 
 

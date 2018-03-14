@@ -17,6 +17,10 @@ import { AuthServerProvider } from '../providers/auth/auth-jwt.service';
 import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 import { AuthInterceptor } from '../providers/auth/auth-interceptor';
 import { EntityPageModule } from '../pages/entities/entity.module';
+import { PreparationProvider } from '../providers/preparation/preparation';
+import { HttpModule } from '@angular/http';
+
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -76,7 +80,8 @@ export function provideSettings(storage: Storage) {
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    PreparationProvider
   ]
 })
 export class AppModule { }
