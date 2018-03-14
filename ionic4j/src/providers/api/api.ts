@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable} from "rxjs/Observable";
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
@@ -11,7 +12,7 @@ export class Api {
   constructor(public http: HttpClient) {
   }
 
-  get(endpoint: string, params?: any, reqOpts?: any) {
+  get(endpoint: string, params?: any, reqOpts?: any): Observable<any>{
     if (!reqOpts) {
       reqOpts = {
         params: new HttpParams()
@@ -26,8 +27,10 @@ export class Api {
       }
     }
 
+    console.log(Api.API_URL + '/' + endpoint);
     return this.http.get(Api.API_URL + '/' + endpoint, reqOpts);
   }
+
 
   post(endpoint: string, body: any, reqOpts?: any) {
     return this.http.post(Api.API_URL + '/' + endpoint, body, reqOpts);

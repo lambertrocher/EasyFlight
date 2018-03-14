@@ -3,6 +3,7 @@ import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
+import { Api } from "../../providers/api/api";
 
 @IonicPage()
 @Component({
@@ -11,20 +12,31 @@ import { LoginService } from '../../providers/login/login.service';
 })
 export class MassPage implements OnInit {
   account: Account;
+  public rep;
 
   constructor(public navCtrl: NavController,
               private principal: Principal,
               private app: App,
-              private loginService: LoginService) { }
+              private loginService: LoginService,
+              private api: Api,
+              ) {
+  }
+
 
   ngOnInit() {
-    this.principal.identity().then((account) => {
-      if (account === null) {
-        this.app.getRootNavs()[0].setRoot(FirstRunPage);
-      } else {
-        this.account = account;
-      }
-    });
+      this.principal.identity().then((account) => {
+          if (account === null) {
+              this.app.getRootNavs()[0].setRoot(FirstRunPage);
+          } else {
+              this.account = account;
+          }
+      });
+      console.log("réponse de l'api");
+      this.api.get("avions").subscribe(response => {
+          console.log(response[0].id);
+          this.rep = response[0].id;
+      });
+      console.log(this.rep);
   }
 
   isAuthenticated() {
