@@ -6,6 +6,7 @@ import { LoginService } from '../../providers/login/login.service';
 import { Api } from "../../providers/api/api"
 import {PreparationPage} from "../preparation/preparation";
 import {PreparationProvider} from "../../providers/preparation/preparation";
+import {Chart} from 'chart.js';
 
 @IonicPage()
 @Component({
@@ -18,6 +19,8 @@ export class MassPage implements OnInit {
   public rep;
   avion;
   brasLevierTotal;
+  poidsTotal;
+  chart = [];
 
 
   constructor(public navCtrl: NavController,
@@ -44,7 +47,7 @@ export class MassPage implements OnInit {
       //     this.rep = response[0].id;
       // });
       // console.log(this.rep);
-      this.masse_et_centrage();
+      
   }
 
   isAuthenticated() {
@@ -71,7 +74,6 @@ export class MassPage implements OnInit {
     let poidsPassager3;
     let poidsBagages;
     let momentTotal;
-    let poidsTotal;
     let masseVideAvion;
       this.api.get("avions/3").subscribe(response => {
           this.avion = response;
@@ -88,16 +90,73 @@ export class MassPage implements OnInit {
           console.log("poids bages", poidsBagages);
 
           momentTotal = 0.3*masseVideAvion + (poidsPilote + poidsPassager1)*levierAvant + (poidsPassager2 + poidsPassager3)*levierArriere + poidsBagages*levierBagages;
-          poidsTotal = masseVideAvion + poidsPilote + poidsPassager1 + poidsPassager2 + poidsPassager3 + poidsBagages;
+          this.poidsTotal = masseVideAvion + poidsPilote + poidsPassager1 + poidsPassager2 + poidsPassager3 + poidsBagages;
           console.log("moment total", momentTotal);
-          console.log("poids total", poidsTotal);
-          this.brasLevierTotal = momentTotal / poidsTotal;
+          console.log("poids total", this.poidsTotal);
+          this.brasLevierTotal = momentTotal / this.poidsTotal;
           console.log(this.brasLevierTotal);
+          this.graphs();
       });
   }
 
-  ionViewWillEnter(){
+
+
+  graphs(){
+      this.chart = new Chart('canvas', {
+          type: 'line',
+          data: {
+              datasets: [{
+                  label: "My second dataset",
+                  fillColor: "#c28a18",
+                  strokeColor: "#c28a18",
+                  highlightFill: "#c28a18",
+                  highlightStroke: "#c28a18",
+                  backgroundColor: ['#c28a18'],
+                  pointRadius: 8,
+                  data: [{x:this.brasLevierTotal,y:this.poidsTotal}] // Note the structure change here!
+              },
+                  {
+                      label: "My First dataset",
+                      fillColor: "#c28a18",
+                      strokeColor: "#c28a18",
+                      highlightFill: "#c28a18",
+                      highlightStroke: "#c28a18",
+                      backgroundColor: ['#ededed'],
+                      pointRadius: 0,
+                      data: [{x:0.205,y:750},{x:0.428,y:1000},{x:0.450,y:1000},{x:0.500,y:1000},{x:0.564,y:1000}] // Note the structure change here!
+                  },
+              ]
+          },
+          options: {
+              legend: {
+                  display: false
+              },
+              scales: {
+                  xAxes: [{
+                      display: true,
+                      type: 'linear',
+                      ticks: {
+                          min: 0.15,
+                          max: 0.6,
+                      }
+                  }],
+                  yAxes: [{
+                      display: true,
+                      label:"bras de levier",
+                      ticks: {
+                          min: 500,
+                          max: 1200,
+                      }
+                  }],
+              }
+          }
+      });
+  }
+
+
+    ionViewDidEnter(){
       this.masse_et_centrage();
+
   }
 
 
