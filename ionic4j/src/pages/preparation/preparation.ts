@@ -61,10 +61,12 @@ export class PreparationPage implements OnInit{
     public poids_passager2: number = 0;
     public poids_passager3: number = 0;
     public poids_bagages: number = 0;
+    public airport;
 
     onChange(event): void {
         // console.log("poids pilote", this.poids_pilote);
-        this.preparationProvider.update_preparation(this.poids_pilote, this.poids_passager1, this.poids_passager2, this.poids_passager3, this.poids_bagages);
+        console.log(this.airport);
+        this.preparationProvider.update_preparation(this.poids_pilote, this.poids_passager1, this.poids_passager2, this.poids_passager3, this.poids_bagages, this.airport);
     }
 
 

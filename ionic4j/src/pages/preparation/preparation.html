@@ -30,7 +30,7 @@
 
   <ion-item>
     <ion-label>Aérodrômes</ion-label>
-    <ion-select [(ngModel)]="airport" multiple="true" cancelText="Cancel" okText="OK">
+    <ion-select multiple="true" cancelText="Cancel" okText="OK" [(ngModel)]="airport" (ngModelChange)="onChange($event)">
       <ion-option value="LFLS">LFLS</ion-option>
       <ion-option value="LFLL">LFLL</ion-option>
     </ion-select>

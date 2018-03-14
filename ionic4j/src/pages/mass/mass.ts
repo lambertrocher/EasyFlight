@@ -47,7 +47,7 @@ export class MassPage implements OnInit {
       //     this.rep = response[0].id;
       // });
       // console.log(this.rep);
-      
+
   }
 
   isAuthenticated() {
@@ -92,9 +92,9 @@ export class MassPage implements OnInit {
           momentTotal = 0.3*masseVideAvion + (poidsPilote + poidsPassager1)*levierAvant + (poidsPassager2 + poidsPassager3)*levierArriere + poidsBagages*levierBagages;
           this.poidsTotal = masseVideAvion + poidsPilote + poidsPassager1 + poidsPassager2 + poidsPassager3 + poidsBagages;
           console.log("moment total", momentTotal);
-          console.log("poids total", this.poidsTotal);
           this.brasLevierTotal = momentTotal / this.poidsTotal;
           console.log(this.brasLevierTotal);
+          console.log("poids total", this.poidsTotal);
           this.graphs();
       });
   }
@@ -156,7 +156,6 @@ export class MassPage implements OnInit {
 
     ionViewDidEnter(){
       this.masse_et_centrage();
-
   }
 
 

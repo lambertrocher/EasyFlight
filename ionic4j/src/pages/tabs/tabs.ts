@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
-import { Tab1Root } from '../pages';
-import { Tab2Root } from '../pages';
-import { Tab3Root } from '../pages';
-import { Tab4Root } from '../pages';
 
 @IonicPage()
 @Component({
@@ -32,7 +27,7 @@ export class TabsPage {
   //   });
   // }
 
-    tab1Root = 'SummaryPage';
+    tab1Root = 'PreparationPage';
     tab2Root = 'MeteoPage';
     tab3Root = 'NotamsPage';
     tab4Root = 'MassPage';
