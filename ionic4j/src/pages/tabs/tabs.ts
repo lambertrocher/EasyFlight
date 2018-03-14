@@ -32,7 +32,7 @@ export class TabsPage {
   //   });
   // }
 
-    tab1Root = 'SummaryPage';
+    tab1Root = 'PreparationPage';
     tab2Root = 'MeteoPage';
     tab3Root = 'NotamsPage';
     tab4Root = 'MassPage';
