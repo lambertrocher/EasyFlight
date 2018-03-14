@@ -21,6 +21,8 @@ import {PreparationProvider} from "../../providers/preparation/preparation";
 export class NotamsPage implements OnInit {
     account: Account;
     list_notams;
+    nb_notams;
+    
 
     constructor(public navCtrl: NavController,
                 private principal: Principal,
@@ -66,10 +68,11 @@ export class NotamsPage implements OnInit {
         }
         param_airport = param_airport.substr(1);
         console.log("notam/" + param_airport);
-
             this.api.get("notam/" + param_airport).subscribe(response => {
-                this.list_notams = JSON.stringify(response);
+                this.list_notams = response;
                 console.log(this.list_notams);
+                this.nb_notams = this.list_notams.rows;
+                console.log(this.nb_notams);
             });
         }
         else{

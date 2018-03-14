@@ -15,8 +15,20 @@
 
 <ion-content padding>
 
+<ul>
+<li *ngFor="let notam of nb_notams">
   <p>
-    Et voici les notams : {{list_notams}}
-  <br />
+  Identifiant du notam: 
+  {{ notam.id }}
+  
+  Aerodrome:
+  {{notam.itema }}
+
+  Consignes:
+  {{ notam.iteme }}
+  
+</p>
+</li>
+</ul>
 
 </ion-content>
