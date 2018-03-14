@@ -1,0 +1,19 @@
+{
+  "fluentMethods": true,
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "longueur",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "typeTerrain",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20180314001140",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "piste"
+}

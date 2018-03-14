@@ -1,0 +1,30 @@
+
+{
+    "backendApp": {
+        "aerodrome" : {
+            "home": {
+                "title": "Aerodromes",
+                "createLabel": "创建新 Aerodrome",
+                "createOrEditLabel": "创建或编辑 Aerodrome",
+                "search": "查找 Aerodrome"
+            },
+            "created": "Aerodrome {{ param }} 创建成功",
+            "updated": "Aerodrome {{ param }} 更新成功",
+            "deleted": "Aerodrome {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Aerodrome {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Aerodrome"
+            },
+            "oaci": "Oaci",
+            "nomAerodrome": "Nom Aerodrome",
+            "controle": "Controle",
+            "frequenceSol": "Frequence Sol",
+            "frequenceTour": "Frequence Tour",
+            "atis": "Atis",
+            "altitude": "Altitude",
+            "piste": "Piste"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+{
+    "backendApp": {
+        "maintenance" : {
+            "home": {
+                "title": "Maintenances",
+                "createLabel": "创建新 Maintenance",
+                "createOrEditLabel": "创建或编辑 Maintenance",
+                "search": "查找 Maintenance"
+            },
+            "created": "Maintenance {{ param }} 创建成功",
+            "updated": "Maintenance {{ param }} 更新成功",
+            "deleted": "Maintenance {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Maintenance {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Maintenance"
+            },
+            "dateMaintenance": "Date Maintenance",
+            "typeMaintenance": "Type Maintenance",
+            "commentaire": "Commentaire"
+        }
+    }
+}

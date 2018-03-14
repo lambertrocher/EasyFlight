@@ -1,0 +1,56 @@
+
+<div *ngIf="pilote">
+    <h2><span jhiTranslate="backendApp.pilote.detail.title">Pilote</span> {{pilote.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.pilote.nom">Nom</span></dt>
+        <dd>
+            <span>{{pilote.nom}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.prenom">Prenom</span></dt>
+        <dd>
+            <span>{{pilote.prenom}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.numeroTel">Numero Tel</span></dt>
+        <dd>
+            <span>{{pilote.numeroTel}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.numeroLicence">Numero Licence</span></dt>
+        <dd>
+            <span>{{pilote.numeroLicence}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.dateValiditeLicence">Date Validite Licence</span></dt>
+        <dd>
+            <span>{{pilote.dateValiditeLicence | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.adresseMail">Adresse Mail</span></dt>
+        <dd>
+            <span>{{pilote.adresseMail}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.certificatMedical">Certificat Medical</span></dt>
+        <dd>
+            <span>{{pilote.certificatMedical}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.pilote.qualification">Qualification</span></dt>
+        <dd>
+            <div *ngIf="pilote.qualification">
+                <a [routerLink]="['/qualification', pilote.qualification?.id]">{{pilote.qualification?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'pilote/'+ pilote.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

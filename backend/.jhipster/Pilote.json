@@ -1,0 +1,46 @@
+{
+  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "qualification",
+      "otherEntityName": "qualification",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numeroTel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numeroLicence",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateValiditeLicence",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "adresseMail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "certificatMedical",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20180314001142",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "pilote"
+}

@@ -1,0 +1,119 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAvionLabel" jhiTranslate="backendApp.avion.home.createOrEditLabel">Create or edit a Avion</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!avion.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="avion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.immatriculation" for="field_immatriculation">Immatriculation</label>
+            <input type="text" class="form-control" name="immatriculation" id="field_immatriculation"
+                [(ngModel)]="avion.immatriculation" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.typeAvion" for="field_typeAvion">Type Avion</label>
+            <input type="text" class="form-control" name="typeAvion" id="field_typeAvion"
+                [(ngModel)]="avion.typeAvion" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.nbSiegesAvant" for="field_nbSiegesAvant">Nb Sieges Avant</label>
+            <input type="number" class="form-control" name="nbSiegesAvant" id="field_nbSiegesAvant"
+                [(ngModel)]="avion.nbSiegesAvant" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.nbSiegesArriere" for="field_nbSiegesArriere">Nb Sieges Arriere</label>
+            <input type="number" class="form-control" name="nbSiegesArriere" id="field_nbSiegesArriere"
+                [(ngModel)]="avion.nbSiegesArriere" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.masseVideAvion" for="field_masseVideAvion">Masse Vide Avion</label>
+            <input type="number" class="form-control" name="masseVideAvion" id="field_masseVideAvion"
+                [(ngModel)]="avion.masseVideAvion" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.masseMaxBagages" for="field_masseMaxBagages">Masse Max Bagages</label>
+            <input type="number" class="form-control" name="masseMaxBagages" id="field_masseMaxBagages"
+                [(ngModel)]="avion.masseMaxBagages" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.masseMaxTotale" for="field_masseMaxTotale">Masse Max Totale</label>
+            <input type="number" class="form-control" name="masseMaxTotale" id="field_masseMaxTotale"
+                [(ngModel)]="avion.masseMaxTotale" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.typeMoteur" for="field_typeMoteur">Type Moteur</label>
+            <input type="text" class="form-control" name="typeMoteur" id="field_typeMoteur"
+                [(ngModel)]="avion.typeMoteur" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.puissanceAvion" for="field_puissanceAvion">Puissance Avion</label>
+            <input type="number" class="form-control" name="puissanceAvion" id="field_puissanceAvion"
+                [(ngModel)]="avion.puissanceAvion" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.vitesseMax" for="field_vitesseMax">Vitesse Max</label>
+            <input type="number" class="form-control" name="vitesseMax" id="field_vitesseMax"
+                [(ngModel)]="avion.vitesseMax" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.vitesseCroisiere" for="field_vitesseCroisiere">Vitesse Croisiere</label>
+            <input type="number" class="form-control" name="vitesseCroisiere" id="field_vitesseCroisiere"
+                [(ngModel)]="avion.vitesseCroisiere" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.facteurBase" for="field_facteurBase">Facteur Base</label>
+            <input type="number" class="form-control" name="facteurBase" id="field_facteurBase"
+                [(ngModel)]="avion.facteurBase" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.nbHeuresVol" for="field_nbHeuresVol">Nb Heures Vol</label>
+            <input type="number" class="form-control" name="nbHeuresVol" id="field_nbHeuresVol"
+                [(ngModel)]="avion.nbHeuresVol" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.levierPassagersAvant" for="field_levierPassagersAvant">Levier Passagers Avant</label>
+            <input type="number" class="form-control" name="levierPassagersAvant" id="field_levierPassagersAvant"
+                [(ngModel)]="avion.levierPassagersAvant" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.levierPassagersArriere" for="field_levierPassagersArriere">Levier Passagers Arriere</label>
+            <input type="number" class="form-control" name="levierPassagersArriere" id="field_levierPassagersArriere"
+                [(ngModel)]="avion.levierPassagersArriere" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.levierBagages" for="field_levierBagages">Levier Bagages</label>
+            <input type="number" class="form-control" name="levierBagages" id="field_levierBagages"
+                [(ngModel)]="avion.levierBagages" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.reservoir" for="field_reservoir">Reservoir</label>
+            <select class="form-control" id="field_reservoir" name="reservoir" [(ngModel)]="avion.reservoir" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="reservoirOption.id === avion.reservoir?.id ? avion.reservoir : reservoirOption" *ngFor="let reservoirOption of reservoirs; trackBy: trackReservoirById">{{reservoirOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.avion.maintenance" for="field_maintenance">Maintenance</label>
+            <select class="form-control" id="field_maintenance" name="maintenance" [(ngModel)]="avion.maintenance" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="maintenanceOption.id === avion.maintenance?.id ? avion.maintenance : maintenanceOption" *ngFor="let maintenanceOption of maintenances; trackBy: trackMaintenanceById">{{maintenanceOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

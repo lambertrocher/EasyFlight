@@ -1,0 +1,91 @@
+{
+  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "reservoir",
+      "otherEntityName": "reservoir",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "maintenance",
+      "otherEntityName": "maintenance",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "immatriculation",
+      "comment": "<Enter note text here>",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "typeAvion",
+      "comment": "<Enter note text here>",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbSiegesAvant",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbSiegesArriere",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "masseVideAvion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "masseMaxBagages",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "masseMaxTotale",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "typeMoteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "puissanceAvion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "vitesseMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "vitesseCroisiere",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "facteurBase",
+      "comment": "<Enter note text here>",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbHeuresVol",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "levierPassagersAvant",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "levierPassagersArriere",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "levierBagages",
+      "fieldType": "Float"
+    }
+  ],
+  "changelogDate": "20180314001135",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "avion"
+}

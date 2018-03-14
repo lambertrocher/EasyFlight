@@ -1,0 +1,44 @@
+
+<div *ngIf="reservoir">
+    <h2><span jhiTranslate="backendApp.reservoir.detail.title">Reservoir</span> {{reservoir.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.reservoir.quantiteMax">Quantite Max</span></dt>
+        <dd>
+            <span>{{reservoir.quantiteMax}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.reservoir.quantitePresente">Quantite Presente</span></dt>
+        <dd>
+            <span>{{reservoir.quantitePresente}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.reservoir.capaciteMaxUtile">Capacite Max Utile</span></dt>
+        <dd>
+            <span>{{reservoir.capaciteMaxUtile}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.reservoir.levier">Levier</span></dt>
+        <dd>
+            <span>{{reservoir.levier}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.reservoir.carburant">Carburant</span></dt>
+        <dd>
+            <div *ngIf="reservoir.carburant">
+                <a [routerLink]="['/carburant', reservoir.carburant?.id]">{{reservoir.carburant?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'reservoir/'+ reservoir.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

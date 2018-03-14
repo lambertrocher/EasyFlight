@@ -1,0 +1,24 @@
+
+{
+    "backendApp": {
+        "qualification" : {
+            "home": {
+                "title": "Qualifications",
+                "createLabel": "创建新 Qualification",
+                "createOrEditLabel": "创建或编辑 Qualification",
+                "search": "查找 Qualification"
+            },
+            "created": "Qualification {{ param }} 创建成功",
+            "updated": "Qualification {{ param }} 更新成功",
+            "deleted": "Qualification {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Qualification {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Qualification"
+            },
+            "expiration": "Expiration",
+            "typeQualification": "Type Qualification"
+        }
+    }
+}

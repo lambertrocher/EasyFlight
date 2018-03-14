@@ -1,0 +1,26 @@
+
+{
+    "backendApp": {
+        "vol" : {
+            "home": {
+                "title": "Vols",
+                "createLabel": "创建新 Vol",
+                "createOrEditLabel": "创建或编辑 Vol",
+                "search": "查找 Vol"
+            },
+            "created": "Vol {{ param }} 创建成功",
+            "updated": "Vol {{ param }} 更新成功",
+            "deleted": "Vol {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Vol {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Vol"
+            },
+            "dateVol": "Date Vol",
+            "avion": "Avion",
+            "pilote": "Pilote",
+            "aerodrome": "Aerodrome"
+        }
+    }
+}

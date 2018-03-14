@@ -1,0 +1,30 @@
+
+<div *ngIf="qualification">
+    <h2><span jhiTranslate="backendApp.qualification.detail.title">Qualification</span> {{qualification.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.qualification.expiration">Expiration</span></dt>
+        <dd>
+            <span>{{qualification.expiration | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.qualification.typeQualification">Type Qualification</span></dt>
+        <dd>
+            <span>{{qualification.typeQualification}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'qualification/'+ qualification.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

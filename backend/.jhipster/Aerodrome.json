@@ -1,0 +1,46 @@
+{
+  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "piste",
+      "otherEntityName": "piste",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "oaci",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomAerodrome",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "controle",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "frequenceSol",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "frequenceTour",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "atis",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "altitude",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20180314001139",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "aerodrome"
+}

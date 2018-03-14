@@ -1,0 +1,56 @@
+
+<div *ngIf="aerodrome">
+    <h2><span jhiTranslate="backendApp.aerodrome.detail.title">Aerodrome</span> {{aerodrome.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.aerodrome.oaci">Oaci</span></dt>
+        <dd>
+            <span>{{aerodrome.oaci}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.nomAerodrome">Nom Aerodrome</span></dt>
+        <dd>
+            <span>{{aerodrome.nomAerodrome}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.controle">Controle</span></dt>
+        <dd>
+            <span>{{aerodrome.controle}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.frequenceSol">Frequence Sol</span></dt>
+        <dd>
+            <span>{{aerodrome.frequenceSol}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.frequenceTour">Frequence Tour</span></dt>
+        <dd>
+            <span>{{aerodrome.frequenceTour}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.atis">Atis</span></dt>
+        <dd>
+            <span>{{aerodrome.atis}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.altitude">Altitude</span></dt>
+        <dd>
+            <span>{{aerodrome.altitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.aerodrome.piste">Piste</span></dt>
+        <dd>
+            <div *ngIf="aerodrome.piste">
+                <a [routerLink]="['/piste', aerodrome.piste?.id]">{{aerodrome.piste?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'aerodrome/'+ aerodrome.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,40 @@
+
+{
+    "backendApp": {
+        "avion" : {
+            "home": {
+                "title": "Avions",
+                "createLabel": "创建新 Avion",
+                "createOrEditLabel": "创建或编辑 Avion",
+                "search": "查找 Avion"
+            },
+            "created": "Avion {{ param }} 创建成功",
+            "updated": "Avion {{ param }} 更新成功",
+            "deleted": "Avion {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Avion {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Avion"
+            },
+            "immatriculation": "Immatriculation",
+            "typeAvion": "Type Avion",
+            "nbSiegesAvant": "Nb Sieges Avant",
+            "nbSiegesArriere": "Nb Sieges Arriere",
+            "masseVideAvion": "Masse Vide Avion",
+            "masseMaxBagages": "Masse Max Bagages",
+            "masseMaxTotale": "Masse Max Totale",
+            "typeMoteur": "Type Moteur",
+            "puissanceAvion": "Puissance Avion",
+            "vitesseMax": "Vitesse Max",
+            "vitesseCroisiere": "Vitesse Croisiere",
+            "facteurBase": "Facteur Base",
+            "nbHeuresVol": "Nb Heures Vol",
+            "levierPassagersAvant": "Levier Passagers Avant",
+            "levierPassagersArriere": "Levier Passagers Arriere",
+            "levierBagages": "Levier Bagages",
+            "reservoir": "Reservoir",
+            "maintenance": "Maintenance"
+        }
+    }
+}

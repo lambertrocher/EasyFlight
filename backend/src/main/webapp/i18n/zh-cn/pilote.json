@@ -1,0 +1,30 @@
+
+{
+    "backendApp": {
+        "pilote" : {
+            "home": {
+                "title": "Pilotes",
+                "createLabel": "创建新 Pilote",
+                "createOrEditLabel": "创建或编辑 Pilote",
+                "search": "查找 Pilote"
+            },
+            "created": "Pilote {{ param }} 创建成功",
+            "updated": "Pilote {{ param }} 更新成功",
+            "deleted": "Pilote {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Pilote {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Pilote"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "numeroTel": "Numero Tel",
+            "numeroLicence": "Numero Licence",
+            "dateValiditeLicence": "Date Validite Licence",
+            "adresseMail": "Adresse Mail",
+            "certificatMedical": "Certificat Medical",
+            "qualification": "Qualification"
+        }
+    }
+}

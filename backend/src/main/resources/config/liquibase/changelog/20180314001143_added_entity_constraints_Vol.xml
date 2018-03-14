@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Vol.
+    -->
+    <changeSet id="20180314001143-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="avion_id"
+                                 baseTableName="vol"
+                                 constraintName="fk_vol_avion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="avion"/>
+
+        <addForeignKeyConstraint baseColumnNames="pilote_id"
+                                 baseTableName="vol"
+                                 constraintName="fk_vol_pilote_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pilote"/>
+
+        <addForeignKeyConstraint baseColumnNames="aerodrome_id"
+                                 baseTableName="vol"
+                                 constraintName="fk_vol_aerodrome_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aerodrome"/>
+
+    </changeSet>
+</databaseChangeLog>

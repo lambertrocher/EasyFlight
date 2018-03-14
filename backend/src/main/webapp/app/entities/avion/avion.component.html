@@ -1,0 +1,113 @@
+<div>
+    <h2>
+        <span jhiTranslate="backendApp.avion.home.title">Avions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-avion" [routerLink]="['/', { outlets: { popup: ['avion-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="backendApp.avion.home.createLabel">
+            Create new Avion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'backendApp.avion.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="avions">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="backendApp.avion.immatriculation">Immatriculation</span></th>
+            <th><span jhiTranslate="backendApp.avion.typeAvion">Type Avion</span></th>
+            <th><span jhiTranslate="backendApp.avion.nbSiegesAvant">Nb Sieges Avant</span></th>
+            <th><span jhiTranslate="backendApp.avion.nbSiegesArriere">Nb Sieges Arriere</span></th>
+            <th><span jhiTranslate="backendApp.avion.masseVideAvion">Masse Vide Avion</span></th>
+            <th><span jhiTranslate="backendApp.avion.masseMaxBagages">Masse Max Bagages</span></th>
+            <th><span jhiTranslate="backendApp.avion.masseMaxTotale">Masse Max Totale</span></th>
+            <th><span jhiTranslate="backendApp.avion.typeMoteur">Type Moteur</span></th>
+            <th><span jhiTranslate="backendApp.avion.puissanceAvion">Puissance Avion</span></th>
+            <th><span jhiTranslate="backendApp.avion.vitesseMax">Vitesse Max</span></th>
+            <th><span jhiTranslate="backendApp.avion.vitesseCroisiere">Vitesse Croisiere</span></th>
+            <th><span jhiTranslate="backendApp.avion.facteurBase">Facteur Base</span></th>
+            <th><span jhiTranslate="backendApp.avion.nbHeuresVol">Nb Heures Vol</span></th>
+            <th><span jhiTranslate="backendApp.avion.levierPassagersAvant">Levier Passagers Avant</span></th>
+            <th><span jhiTranslate="backendApp.avion.levierPassagersArriere">Levier Passagers Arriere</span></th>
+            <th><span jhiTranslate="backendApp.avion.levierBagages">Levier Bagages</span></th>
+            <th><span jhiTranslate="backendApp.avion.reservoir">Reservoir</span></th>
+            <th><span jhiTranslate="backendApp.avion.maintenance">Maintenance</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let avion of avions ;trackBy: trackId">
+                <td><a [routerLink]="['../avion', avion.id ]">{{avion.id}}</a></td>
+                <td>{{avion.immatriculation}}</td>
+                <td>{{avion.typeAvion}}</td>
+                <td>{{avion.nbSiegesAvant}}</td>
+                <td>{{avion.nbSiegesArriere}}</td>
+                <td>{{avion.masseVideAvion}}</td>
+                <td>{{avion.masseMaxBagages}}</td>
+                <td>{{avion.masseMaxTotale}}</td>
+                <td>{{avion.typeMoteur}}</td>
+                <td>{{avion.puissanceAvion}}</td>
+                <td>{{avion.vitesseMax}}</td>
+                <td>{{avion.vitesseCroisiere}}</td>
+                <td>{{avion.facteurBase}}</td>
+                <td>{{avion.nbHeuresVol}}</td>
+                <td>{{avion.levierPassagersAvant}}</td>
+                <td>{{avion.levierPassagersArriere}}</td>
+                <td>{{avion.levierBagages}}</td>
+                <td>
+                    <div *ngIf="avion.reservoir">
+                        <a [routerLink]="['../reservoir', avion.reservoir?.id ]" >{{avion.reservoir?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="avion.maintenance">
+                        <a [routerLink]="['../maintenance', avion.maintenance?.id ]" >{{avion.maintenance?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../avion', avion.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'avion/'+ avion.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'avion/'+ avion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+{
+    "backendApp": {
+        "carburant" : {
+            "home": {
+                "title": "Carburants",
+                "createLabel": "创建新 Carburant",
+                "createOrEditLabel": "创建或编辑 Carburant",
+                "search": "查找 Carburant"
+            },
+            "created": "Carburant {{ param }} 创建成功",
+            "updated": "Carburant {{ param }} 更新成功",
+            "deleted": "Carburant {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Carburant {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Carburant"
+            },
+            "typeCarburant": "Type Carburant",
+            "poidsParLitre": "Poids Par Litre"
+        }
+    }
+}

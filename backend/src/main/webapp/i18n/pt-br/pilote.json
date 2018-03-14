@@ -1,0 +1,30 @@
+
+{
+    "backendApp": {
+        "pilote" : {
+            "home": {
+                "title": "Pilotes",
+                "createLabel": "Criar novo Pilote",
+                "createOrEditLabel": "Criar ou editar Pilote",
+                "search": "Pesquisar por Pilote"
+            },
+            "created": "Um novo Pilote foi criado com o identificador {{ param }}",
+            "updated": "Um Pilote foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Pilote foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Pilote {{ id }}?"
+            },
+            "detail": {
+                "title": "Pilote"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "numeroTel": "Numero Tel",
+            "numeroLicence": "Numero Licence",
+            "dateValiditeLicence": "Date Validite Licence",
+            "adresseMail": "Adresse Mail",
+            "certificatMedical": "Certificat Medical",
+            "qualification": "Qualification"
+        }
+    }
+}

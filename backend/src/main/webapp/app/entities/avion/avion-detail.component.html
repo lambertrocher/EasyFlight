@@ -1,0 +1,98 @@
+
+<div *ngIf="avion">
+    <h2><span jhiTranslate="backendApp.avion.detail.title">Avion</span> {{avion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.avion.immatriculation">Immatriculation</span></dt>
+        <dd>
+            <span>{{avion.immatriculation}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.typeAvion">Type Avion</span></dt>
+        <dd>
+            <span>{{avion.typeAvion}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.nbSiegesAvant">Nb Sieges Avant</span></dt>
+        <dd>
+            <span>{{avion.nbSiegesAvant}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.nbSiegesArriere">Nb Sieges Arriere</span></dt>
+        <dd>
+            <span>{{avion.nbSiegesArriere}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.masseVideAvion">Masse Vide Avion</span></dt>
+        <dd>
+            <span>{{avion.masseVideAvion}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.masseMaxBagages">Masse Max Bagages</span></dt>
+        <dd>
+            <span>{{avion.masseMaxBagages}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.masseMaxTotale">Masse Max Totale</span></dt>
+        <dd>
+            <span>{{avion.masseMaxTotale}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.typeMoteur">Type Moteur</span></dt>
+        <dd>
+            <span>{{avion.typeMoteur}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.puissanceAvion">Puissance Avion</span></dt>
+        <dd>
+            <span>{{avion.puissanceAvion}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.vitesseMax">Vitesse Max</span></dt>
+        <dd>
+            <span>{{avion.vitesseMax}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.vitesseCroisiere">Vitesse Croisiere</span></dt>
+        <dd>
+            <span>{{avion.vitesseCroisiere}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.facteurBase">Facteur Base</span></dt>
+        <dd>
+            <span>{{avion.facteurBase}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.nbHeuresVol">Nb Heures Vol</span></dt>
+        <dd>
+            <span>{{avion.nbHeuresVol}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.levierPassagersAvant">Levier Passagers Avant</span></dt>
+        <dd>
+            <span>{{avion.levierPassagersAvant}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.levierPassagersArriere">Levier Passagers Arriere</span></dt>
+        <dd>
+            <span>{{avion.levierPassagersArriere}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.levierBagages">Levier Bagages</span></dt>
+        <dd>
+            <span>{{avion.levierBagages}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.reservoir">Reservoir</span></dt>
+        <dd>
+            <div *ngIf="avion.reservoir">
+                <a [routerLink]="['/reservoir', avion.reservoir?.id]">{{avion.reservoir?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="backendApp.avion.maintenance">Maintenance</span></dt>
+        <dd>
+            <div *ngIf="avion.maintenance">
+                <a [routerLink]="['/maintenance', avion.maintenance?.id]">{{avion.maintenance?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'avion/'+ avion.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

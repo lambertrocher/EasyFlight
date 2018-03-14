@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAerodromeLabel" jhiTranslate="backendApp.aerodrome.home.createOrEditLabel">Create or edit a Aerodrome</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!aerodrome.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="aerodrome.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.oaci" for="field_oaci">Oaci</label>
+            <input type="text" class="form-control" name="oaci" id="field_oaci"
+                [(ngModel)]="aerodrome.oaci" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.nomAerodrome" for="field_nomAerodrome">Nom Aerodrome</label>
+            <input type="text" class="form-control" name="nomAerodrome" id="field_nomAerodrome"
+                [(ngModel)]="aerodrome.nomAerodrome" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.controle" for="field_controle">Controle</label>
+            <input type="checkbox" class="form-control" name="controle" id="field_controle"
+                [(ngModel)]="aerodrome.controle" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.frequenceSol" for="field_frequenceSol">Frequence Sol</label>
+            <input type="number" class="form-control" name="frequenceSol" id="field_frequenceSol"
+                [(ngModel)]="aerodrome.frequenceSol" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.frequenceTour" for="field_frequenceTour">Frequence Tour</label>
+            <input type="number" class="form-control" name="frequenceTour" id="field_frequenceTour"
+                [(ngModel)]="aerodrome.frequenceTour" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.atis" for="field_atis">Atis</label>
+            <input type="number" class="form-control" name="atis" id="field_atis"
+                [(ngModel)]="aerodrome.atis" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.altitude" for="field_altitude">Altitude</label>
+            <input type="number" class="form-control" name="altitude" id="field_altitude"
+                [(ngModel)]="aerodrome.altitude" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.aerodrome.piste" for="field_piste">Piste</label>
+            <select class="form-control" id="field_piste" name="piste" [(ngModel)]="aerodrome.piste" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="pisteOption.id === aerodrome.piste?.id ? aerodrome.piste : pisteOption" *ngFor="let pisteOption of pistes; trackBy: trackPisteById">{{pisteOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

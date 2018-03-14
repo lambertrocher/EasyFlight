@@ -1,0 +1,44 @@
+
+<div *ngIf="vol">
+    <h2><span jhiTranslate="backendApp.vol.detail.title">Vol</span> {{vol.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.vol.dateVol">Date Vol</span></dt>
+        <dd>
+            <span>{{vol.dateVol | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.vol.avion">Avion</span></dt>
+        <dd>
+            <div *ngIf="vol.avion">
+                <a [routerLink]="['/avion', vol.avion?.id]">{{vol.avion?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="backendApp.vol.pilote">Pilote</span></dt>
+        <dd>
+            <div *ngIf="vol.pilote">
+                <a [routerLink]="['/pilote', vol.pilote?.id]">{{vol.pilote?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="backendApp.vol.aerodrome">Aerodrome</span></dt>
+        <dd>
+            <div *ngIf="vol.aerodrome">
+                <a [routerLink]="['/aerodrome', vol.aerodrome?.id]">{{vol.aerodrome?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'vol/'+ vol.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

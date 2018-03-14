@@ -1,0 +1,25 @@
+
+{
+    "backendApp": {
+        "maintenance" : {
+            "home": {
+                "title": "Maintenances",
+                "createLabel": "Criar novo Maintenance",
+                "createOrEditLabel": "Criar ou editar Maintenance",
+                "search": "Pesquisar por Maintenance"
+            },
+            "created": "Um novo Maintenance foi criado com o identificador {{ param }}",
+            "updated": "Um Maintenance foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Maintenance foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Maintenance {{ id }}?"
+            },
+            "detail": {
+                "title": "Maintenance"
+            },
+            "dateMaintenance": "Date Maintenance",
+            "typeMaintenance": "Type Maintenance",
+            "commentaire": "Commentaire"
+        }
+    }
+}

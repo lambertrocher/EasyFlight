@@ -1,0 +1,30 @@
+
+{
+    "backendApp": {
+        "aerodrome" : {
+            "home": {
+                "title": "Aerodromes",
+                "createLabel": "Créer un nouveau Aerodrome",
+                "createOrEditLabel": "Créer ou éditer un Aerodrome",
+                "search": "Recherche pour Aerodrome"
+            },
+            "created": "Un nouveau Aerodrome a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Aerodrome avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Aerodrome avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Aerodrome {{ id }} ?"
+            },
+            "detail": {
+                "title": "Aerodrome"
+            },
+            "oaci": "Oaci",
+            "nomAerodrome": "Nom Aerodrome",
+            "controle": "Controle",
+            "frequenceSol": "Frequence Sol",
+            "frequenceTour": "Frequence Tour",
+            "atis": "Atis",
+            "altitude": "Altitude",
+            "piste": "Piste"
+        }
+    }
+}

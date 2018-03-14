@@ -1,0 +1,40 @@
+
+{
+    "backendApp": {
+        "avion" : {
+            "home": {
+                "title": "Avions",
+                "createLabel": "Créer un nouveau Avion",
+                "createOrEditLabel": "Créer ou éditer un Avion",
+                "search": "Recherche pour Avion"
+            },
+            "created": "Un nouveau Avion a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Avion avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Avion avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Avion {{ id }} ?"
+            },
+            "detail": {
+                "title": "Avion"
+            },
+            "immatriculation": "Immatriculation",
+            "typeAvion": "Type Avion",
+            "nbSiegesAvant": "Nb Sieges Avant",
+            "nbSiegesArriere": "Nb Sieges Arriere",
+            "masseVideAvion": "Masse Vide Avion",
+            "masseMaxBagages": "Masse Max Bagages",
+            "masseMaxTotale": "Masse Max Totale",
+            "typeMoteur": "Type Moteur",
+            "puissanceAvion": "Puissance Avion",
+            "vitesseMax": "Vitesse Max",
+            "vitesseCroisiere": "Vitesse Croisiere",
+            "facteurBase": "Facteur Base",
+            "nbHeuresVol": "Nb Heures Vol",
+            "levierPassagersAvant": "Levier Passagers Avant",
+            "levierPassagersArriere": "Levier Passagers Arriere",
+            "levierBagages": "Levier Bagages",
+            "reservoir": "Reservoir",
+            "maintenance": "Maintenance"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+
+{
+    "backendApp": {
+        "carburant" : {
+            "home": {
+                "title": "Carburants",
+                "createLabel": "Create a new Carburant",
+                "createOrEditLabel": "Create or edit a Carburant",
+                "search": "Search for Carburant"
+            },
+            "created": "A new Carburant is created with identifier {{ param }}",
+            "updated": "A Carburant is updated with identifier {{ param }}",
+            "deleted": "A Carburant is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Carburant {{ id }}?"
+            },
+            "detail": {
+                "title": "Carburant"
+            },
+            "typeCarburant": "Type Carburant",
+            "poidsParLitre": "Poids Par Litre"
+        }
+    }
+}

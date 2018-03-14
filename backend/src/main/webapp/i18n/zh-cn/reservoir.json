@@ -1,0 +1,27 @@
+
+{
+    "backendApp": {
+        "reservoir" : {
+            "home": {
+                "title": "Reservoirs",
+                "createLabel": "创建新 Reservoir",
+                "createOrEditLabel": "创建或编辑 Reservoir",
+                "search": "查找 Reservoir"
+            },
+            "created": "Reservoir {{ param }} 创建成功",
+            "updated": "Reservoir {{ param }} 更新成功",
+            "deleted": "Reservoir {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Reservoir {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Reservoir"
+            },
+            "quantiteMax": "Quantite Max",
+            "quantitePresente": "Quantite Presente",
+            "capaciteMaxUtile": "Capacite Max Utile",
+            "levier": "Levier",
+            "carburant": "Carburant"
+        }
+    }
+}

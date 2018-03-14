@@ -1,0 +1,34 @@
+{
+  "fluentMethods": true,
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "avion",
+      "otherEntityName": "avion",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "pilote",
+      "otherEntityName": "pilote",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "relationshipName": "aerodrome",
+      "otherEntityName": "aerodrome",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "dateVol",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20180314001143",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "vol"
+}

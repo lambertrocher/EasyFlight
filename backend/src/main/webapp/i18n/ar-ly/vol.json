@@ -1,0 +1,26 @@
+
+{
+    "backendApp": {
+        "vol" : {
+            "home": {
+                "title": "Vols",
+                "createLabel": "Create a new Vol",
+                "createOrEditLabel": "Create or edit a Vol",
+                "search": "Search for Vol"
+            },
+            "created": "A new Vol is created with identifier {{ param }}",
+            "updated": "A Vol is updated with identifier {{ param }}",
+            "deleted": "A Vol is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vol {{ id }}?"
+            },
+            "detail": {
+                "title": "Vol"
+            },
+            "dateVol": "Date Vol",
+            "avion": "Avion",
+            "pilote": "Pilote",
+            "aerodrome": "Aerodrome"
+        }
+    }
+}

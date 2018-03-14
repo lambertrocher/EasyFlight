@@ -1,0 +1,26 @@
+
+{
+    "backendApp": {
+        "vol" : {
+            "home": {
+                "title": "Vols",
+                "createLabel": "Créer un nouveau Vol",
+                "createOrEditLabel": "Créer ou éditer un Vol",
+                "search": "Recherche pour Vol"
+            },
+            "created": "Un nouveau Vol a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Vol avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Vol avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Vol {{ id }} ?"
+            },
+            "detail": {
+                "title": "Vol"
+            },
+            "dateVol": "Date Vol",
+            "avion": "Avion",
+            "pilote": "Pilote",
+            "aerodrome": "Aerodrome"
+        }
+    }
+}

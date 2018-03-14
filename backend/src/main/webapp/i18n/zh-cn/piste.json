@@ -1,0 +1,24 @@
+
+{
+    "backendApp": {
+        "piste" : {
+            "home": {
+                "title": "Pistes",
+                "createLabel": "创建新 Piste",
+                "createOrEditLabel": "创建或编辑 Piste",
+                "search": "查找 Piste"
+            },
+            "created": "Piste {{ param }} 创建成功",
+            "updated": "Piste {{ param }} 更新成功",
+            "deleted": "Piste {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Piste {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Piste"
+            },
+            "longueur": "Longueur",
+            "typeTerrain": "Type Terrain"
+        }
+    }
+}

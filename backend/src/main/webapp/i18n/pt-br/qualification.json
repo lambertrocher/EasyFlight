@@ -1,0 +1,24 @@
+
+{
+    "backendApp": {
+        "qualification" : {
+            "home": {
+                "title": "Qualifications",
+                "createLabel": "Criar novo Qualification",
+                "createOrEditLabel": "Criar ou editar Qualification",
+                "search": "Pesquisar por Qualification"
+            },
+            "created": "Um novo Qualification foi criado com o identificador {{ param }}",
+            "updated": "Um Qualification foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Qualification foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Qualification {{ id }}?"
+            },
+            "detail": {
+                "title": "Qualification"
+            },
+            "expiration": "Expiration",
+            "typeQualification": "Type Qualification"
+        }
+    }
+}

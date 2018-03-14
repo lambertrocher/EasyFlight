@@ -1,0 +1,27 @@
+
+{
+    "backendApp": {
+        "reservoir" : {
+            "home": {
+                "title": "Reservoirs",
+                "createLabel": "Criar novo Reservoir",
+                "createOrEditLabel": "Criar ou editar Reservoir",
+                "search": "Pesquisar por Reservoir"
+            },
+            "created": "Um novo Reservoir foi criado com o identificador {{ param }}",
+            "updated": "Um Reservoir foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Reservoir foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Reservoir {{ id }}?"
+            },
+            "detail": {
+                "title": "Reservoir"
+            },
+            "quantiteMax": "Quantite Max",
+            "quantitePresente": "Quantite Presente",
+            "capaciteMaxUtile": "Capacite Max Utile",
+            "levier": "Levier",
+            "carburant": "Carburant"
+        }
+    }
+}

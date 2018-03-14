@@ -1,0 +1,19 @@
+{
+  "fluentMethods": true,
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "expiration",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "typeQualification",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20180314001141",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "entityTableName": "qualification"
+}

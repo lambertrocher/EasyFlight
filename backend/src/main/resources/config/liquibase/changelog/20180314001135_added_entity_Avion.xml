@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Avion.
+    -->
+    <changeSet id="20180314001135-1" author="jhipster">
+        <createTable tableName="avion">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="immatriculation" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="type_avion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nb_sieges_avant" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nb_sieges_arriere" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="masse_vide_avion" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="masse_max_bagages" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="masse_max_totale" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="type_moteur" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="puissance_avion" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="vitesse_max" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="vitesse_croisiere" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="facteur_base" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="nb_heures_vol" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="levier_passagers_avant" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="levier_passagers_arriere" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="levier_bagages" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="reservoir_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="maintenance_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

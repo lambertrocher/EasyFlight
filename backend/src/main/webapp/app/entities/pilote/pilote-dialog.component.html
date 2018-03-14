@@ -1,0 +1,72 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPiloteLabel" jhiTranslate="backendApp.pilote.home.createOrEditLabel">Create or edit a Pilote</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!pilote.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="pilote.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.nom" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                [(ngModel)]="pilote.nom" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.prenom" for="field_prenom">Prenom</label>
+            <input type="text" class="form-control" name="prenom" id="field_prenom"
+                [(ngModel)]="pilote.prenom" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.numeroTel" for="field_numeroTel">Numero Tel</label>
+            <input type="number" class="form-control" name="numeroTel" id="field_numeroTel"
+                [(ngModel)]="pilote.numeroTel" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.numeroLicence" for="field_numeroLicence">Numero Licence</label>
+            <input type="text" class="form-control" name="numeroLicence" id="field_numeroLicence"
+                [(ngModel)]="pilote.numeroLicence" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.dateValiditeLicence" for="field_dateValiditeLicence">Date Validite Licence</label>
+            <div class="input-group">
+                <input id="field_dateValiditeLicence" type="text" class="form-control" name="dateValiditeLicence" ngbDatepicker  #dateValiditeLicenceDp="ngbDatepicker" [(ngModel)]="pilote.dateValiditeLicence"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="dateValiditeLicenceDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.adresseMail" for="field_adresseMail">Adresse Mail</label>
+            <input type="text" class="form-control" name="adresseMail" id="field_adresseMail"
+                [(ngModel)]="pilote.adresseMail" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.certificatMedical" for="field_certificatMedical">Certificat Medical</label>
+            <input type="text" class="form-control" name="certificatMedical" id="field_certificatMedical"
+                [(ngModel)]="pilote.certificatMedical" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="backendApp.pilote.qualification" for="field_qualification">Qualification</label>
+            <select class="form-control" id="field_qualification" name="qualification" [(ngModel)]="pilote.qualification" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="qualificationOption.id === pilote.qualification?.id ? pilote.qualification : qualificationOption" *ngFor="let qualificationOption of qualifications; trackBy: trackQualificationById">{{qualificationOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

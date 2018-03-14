@@ -1,0 +1,30 @@
+
+<div *ngIf="carburant">
+    <h2><span jhiTranslate="backendApp.carburant.detail.title">Carburant</span> {{carburant.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="backendApp.carburant.typeCarburant">Type Carburant</span></dt>
+        <dd>
+            <span>{{carburant.typeCarburant}}</span>
+        </dd>
+        <dt><span jhiTranslate="backendApp.carburant.poidsParLitre">Poids Par Litre</span></dt>
+        <dd>
+            <span>{{carburant.poidsParLitre}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'carburant/'+ carburant.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

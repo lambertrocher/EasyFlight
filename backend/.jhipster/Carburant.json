@@ -1,0 +1,21 @@
+{
+  "fluentMethods": true,
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "typeCarburant",
+      "comment": "<Enter note text here>",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "poidsParLitre",
+      "fieldType": "Float"
+    }
+  ],
+  "changelogDate": "20180314001138",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "javadoc": "<Enter note text here>",
+  "entityTableName": "carburant"
+}
