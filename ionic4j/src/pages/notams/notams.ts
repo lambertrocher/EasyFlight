@@ -3,6 +3,9 @@ import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
+import { Api} from "../../providers/api/api";
+import {PreparationProvider} from "../../providers/preparation/preparation";
+
 /**
  * Generated class for the NotamsPage page.
  *
@@ -17,11 +20,15 @@ import { LoginService } from '../../providers/login/login.service';
 })
 export class NotamsPage implements OnInit {
     account: Account;
+    list_notams;
 
     constructor(public navCtrl: NavController,
                 private principal: Principal,
                 private app: App,
-                private loginService: LoginService) { }
+                private loginService: LoginService,
+                private api: Api,
+                private preparationProvider: PreparationProvider,
+    ) { }
 
     ngOnInit() {
         this.principal.identity().then((account) => {
@@ -44,5 +51,35 @@ export class NotamsPage implements OnInit {
 
     notams() {
         this.navCtrl.push('NotamsPage');
+    }
+
+    update_notams(){
+
+        let airport_list;
+        airport_list = this.preparationProvider.airport;
+        console.log("liste des aérports",airport_list);
+        if (airport_list.length > 0) {
+        let param_airport = "";
+        for (let airport of airport_list) {
+            console.log(airport);
+            param_airport = param_airport + ',' + airport;
+        }
+        param_airport = param_airport.substr(1);
+        console.log("notam/" + param_airport);
+
+            this.api.get("notam/" + param_airport).subscribe(response => {
+                this.list_notams = JSON.stringify(response);
+                console.log(this.list_notams);
+            });
+        }
+        else{
+            console.log("pas d'aéroport");
+            this.list_notams = "";
+        }
+    }
+
+    ionViewDidEnter(){
+        this.update_notams();
+        console.log("enter notams");
     }
 }
