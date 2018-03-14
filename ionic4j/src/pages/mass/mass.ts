@@ -17,11 +17,7 @@ export class MassPage implements OnInit {
   account: Account;
   public rep;
   avion;
-  poidsPilote;
-  poidsPassager1;
-  poidsPassager2;
-  poidsPassager3;
-  poidsBagages;
+  brasLevierTotal;
 
 
   constructor(public navCtrl: NavController,
@@ -74,18 +70,29 @@ export class MassPage implements OnInit {
     let poidsPassager2;
     let poidsPassager3;
     let poidsBagages;
+    let momentTotal;
+    let poidsTotal;
+    let masseVideAvion;
       this.api.get("avions/3").subscribe(response => {
           this.avion = response;
           levierBagages = this.avion.levierBagages;
           levierAvant = this.avion.levierPassagersAvant;
           levierArriere = this.avion.levierPassagersArriere;
           levierReservoir = this.avion.reservoir.levier;
+          masseVideAvion = this.avion.masseVideAvion;
           poidsPilote = this.preparationProvider.poids_pilote;
           poidsPassager1 = this.preparationProvider.poids_passager1;
           poidsPassager2 = this.preparationProvider.poids_passager2;
           poidsPassager3 = this.preparationProvider.poids_passager3;
           poidsBagages = this.preparationProvider.poids_bagages;
-          console.log("poids bages", poidsBagages)
+          console.log("poids bages", poidsBagages);
+
+          momentTotal = 0.3*masseVideAvion + (poidsPilote + poidsPassager1)*levierAvant + (poidsPassager2 + poidsPassager3)*levierArriere + poidsBagages*levierBagages;
+          poidsTotal = masseVideAvion + poidsPilote + poidsPassager1 + poidsPassager2 + poidsPassager3 + poidsBagages;
+          console.log("moment total", momentTotal);
+          console.log("poids total", poidsTotal);
+          this.brasLevierTotal = momentTotal / poidsTotal;
+          console.log(this.brasLevierTotal);
       });
   }
 
