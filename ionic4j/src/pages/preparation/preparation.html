@@ -101,12 +101,6 @@
     <!--</ion-item>-->
   <!--</ion-list>-->
 
-
-
-      <ion-list>
-        <ion-item> Poids de l'équipage</ion-item>
-      </ion-list>
-
       <ion-list>
         <ion-item>
           Poids pilote
@@ -134,7 +128,7 @@
           Poids passager avant
           <ion-badge item-end color="primary">Poids passager avant : {{poids_passager1}} kg</ion-badge>
 
-          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager1" color="primary">
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager1" (ngModelChange)="onChange($event)" color="primary">
             <!--<ion-label range-left>0</ion-label>-->
           </ion-range>
         </ion-item>
@@ -145,7 +139,7 @@
           Poids passager arrière 1
           <ion-badge item-end color="primary">Poids passager arrière 1 : {{poids_passager2}} kg</ion-badge>
 
-          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager2" color="primary">
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager2" (ngModelChange)="onChange($event)" color="primary">
             <!--<ion-label range-left>0</ion-label>-->
           </ion-range>
         </ion-item>
@@ -156,7 +150,7 @@
           Poids passaer arrière 2
           <ion-badge item-end color="primary">Poids passager arrière 2 : {{poids_passager3}} kg</ion-badge>
 
-          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager3" color="primary">
+          <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_passager3" (ngModelChange)="onChange($event)" color="primary">
             <!--<ion-label range-left>0</ion-label>-->
           </ion-range>
         </ion-item>
@@ -167,7 +161,7 @@
         Poids bagages
         <ion-badge item-end color="primary">Poids bagages : {{poids_bagages}} kg</ion-badge>
 
-        <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_bagages" color="primary">
+        <ion-range min="0" max="120" pin="false" [(ngModel)]="poids_bagages" (ngModelChange)="onChange($event)" color="primary">
           <!--<ion-label range-left>0</ion-label>-->
         </ion-range>
       </ion-item>

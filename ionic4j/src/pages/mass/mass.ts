@@ -17,6 +17,12 @@ export class MassPage implements OnInit {
   account: Account;
   public rep;
   avion;
+  poidsPilote;
+  poidsPassager1;
+  poidsPassager2;
+  poidsPassager3;
+  poidsBagages;
+
 
   constructor(public navCtrl: NavController,
               private principal: Principal,
@@ -63,15 +69,24 @@ export class MassPage implements OnInit {
     let levierAvant;
     let levierArriere;
     let levierReservoir;
+    let poidsPilote;
+    let poidsPassager1;
+    let poidsPassager2;
+    let poidsPassager3;
+    let poidsBagages;
       this.api.get("avions/3").subscribe(response => {
           this.avion = response;
           levierBagages = this.avion.levierBagages;
           levierAvant = this.avion.levierPassagersAvant;
           levierArriere = this.avion.levierPassagersArriere;
           levierReservoir = this.avion.reservoir.levier;
-          console.log("mass.ts dit : poids = ", this.preparationProvider.poids_pilote)
+          poidsPilote = this.preparationProvider.poids_pilote;
+          poidsPassager1 = this.preparationProvider.poids_passager1;
+          poidsPassager2 = this.preparationProvider.poids_passager2;
+          poidsPassager3 = this.preparationProvider.poids_passager3;
+          poidsBagages = this.preparationProvider.poids_bagages;
+          console.log("poids bages", poidsBagages)
       });
-
   }
 
   ionViewWillEnter(){
