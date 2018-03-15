@@ -134,7 +134,7 @@ public class DataResource
 	 */
 	@GetMapping("/loramote/{deviceId}")
 	@Timed
-	public ResponseEntity<String> getLoramote(@PathVariable String deviceId)
+	public ResponseEntity<String> getLoramote(@PathVariable String deviceId, @RequestParam(required = false, value = "n") String n)
 	{
 		int id;
 
@@ -152,6 +152,33 @@ public class DataResource
 			return ResponseEntity.badRequest().body("The devide ID must be positive.");
 		}
 
+		int sampleSize;
+
+		if(n == null)
+		{
+			sampleSize = 1;
+		}
+		else
+		{
+			try
+			{
+				sampleSize = Integer.parseInt(n);
+
+				if(sampleSize <= 0)
+				{
+					log.debug("Received invalid sample size, value will be set to default (1)");
+
+					sampleSize = 1;
+				}
+			}
+			catch(NumberFormatException e)
+			{
+				log.debug("Received invalid sample size, value will be set to default (1)");
+
+				sampleSize = 1;
+			}
+		}
+
 		if(id == 1)
 		{
 			String devideId = "loramote_01";
@@ -166,34 +193,42 @@ public class DataResource
 			try
 			{
 				JSONArray a = new JSONArray(data);
+				int size = a.length();
 
-				// retrieves the most recent payload, i.e. the last element
-				JSONObject o = (JSONObject) a.get(a.length() - 1);
+				JSONArray result = new JSONArray();
 
-				JSONObject result = new JSONObject();
+				// retrieves the most recent payloads, i.e. the last elements
+				for(int i = 1; i <= size && i <= sampleSize; i++)
+				{
+					JSONObject payload = (JSONObject) a.get(size - i);
 
-				JSONObject board = new JSONObject();
-				board.put("led", o.get("led"));
-				board.put("battery", o.get("battery"));
-				result.put("board", board);
+					JSONObject converted = new JSONObject();
 
-				JSONObject env = new JSONObject();
-				env.put("temperature", o.get("temperature"));
-				env.put("pressure", o.get("pressure"));
-				env.put("altitude", o.get("bar_altitude"));
-				result.put("env", env);
+					JSONObject board = new JSONObject();
+					board.put("led", payload.get("led"));
+					board.put("battery", payload.get("battery"));
+					converted.put("board", board);
 
-				JSONObject gps = new JSONObject();
-				gps.put("latitude", o.get("latitude"));
-				gps.put("longitude", o.get("longitude"));
-				gps.put("altitude", o.get("altitude"));
-				result.put("gps", gps);
+					JSONObject env = new JSONObject();
+					env.put("temperature", payload.get("temperature"));
+					env.put("pressure", payload.get("pressure"));
+					env.put("altitude", payload.get("bar_altitude"));
+					converted.put("env", env);
 
-				JSONObject meta = new JSONObject();
-				meta.put("device_id", o.get("device_id"));
-				meta.put("raw", o.get("raw"));
-				meta.put("time", o.get("time"));
-				result.put("meta", meta);
+					JSONObject gps = new JSONObject();
+					gps.put("latitude", payload.get("latitude"));
+					gps.put("longitude", payload.get("longitude"));
+					gps.put("altitude", payload.get("altitude"));
+					converted.put("gps", gps);
+
+					JSONObject meta = new JSONObject();
+					meta.put("device_id", payload.get("device_id"));
+					meta.put("raw", payload.get("raw"));
+					meta.put("time", payload.get("time"));
+					converted.put("meta", meta);
+
+					result.put(converted);
+				}
 
 				return ResponseEntity.ok(result.toString());
 			}
