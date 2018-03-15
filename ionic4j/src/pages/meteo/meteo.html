@@ -14,7 +14,46 @@
 
 
 <ion-content padding>
-	<p>
-	Aerodrome: {{ list_meteo }}
-</p>
+	<ul>
+<li *ngFor="let meteo of list_meteo">
+  <p>
+  Rapport brut:
+  {{ meteo["Raw-Report"] }}
+  </p>
+  <p>
+  Identifiant de l'aerodrome: 
+  {{ meteo["Station"] }}
+  </p>
+  <p>
+  	Date du relevé:
+  	{{ meteo.Meta.Timestamp}}
+  </p>
+  <p>
+  	Pression atmosphérique au sol:
+  	{{ meteo["Altimeter"] }} hPa
+  </p>
+  <p>
+  	Plafond nuageux:
+  	{{ meteo["Cloud-List"] }}
+  	Type de nuages:
+  	{{ meteo["Other-List"] }}
+  </p>
+  <p>
+  	Remarques:
+  	{{ meteo["Remarks"] }}
+  </p>	
+  <p>
+  	Point de rosée:
+  	{{ meteo["Dewpoint"] }}
+  </p>
+  <p>
+  	Température:
+  	{{ meteo["Temperature"] }}
+  </p>	
+  <p>
+  	Visibilité:
+  	{{ meteo["Visibility"] }}
+  </p>	
+</li>
+</ul>
 </ion-content>
