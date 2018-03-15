@@ -31,7 +31,7 @@ export class TabsPage {
     tab2Root = 'MeteoPage';
     tab3Root = 'NotamsPage';
     tab4Root = 'MassPage';
-
+    tab5Root = 'LoramotePage';
     constructor() {
 
     }
