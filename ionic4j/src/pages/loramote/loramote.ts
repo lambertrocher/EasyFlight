@@ -3,6 +3,7 @@ import { App, IonicPage, NavController } from 'ionic-angular';
 import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
+import { Api} from "../../providers/api/api";
 
 
 /**
@@ -19,12 +20,13 @@ import { LoginService } from '../../providers/login/login.service';
 })
 export class LoramotePage implements OnInit {
     account: Account;
-    
+    data;
 
     constructor(public navCtrl: NavController,
                 private principal: Principal,
                 private app: App,
                 private loginService: LoginService,
+                private api: Api,
                 ) { }
 
     ngOnInit() {
@@ -48,6 +50,20 @@ export class LoramotePage implements OnInit {
 
     loramote() {
         this.navCtrl.push('LoramotePage');
+    }
+
+     update_loramote(){
+        console.log("loramote/" + "1");
+        this.api.get("loramote/" + "1").subscribe(response => {
+                this.data = response;
+            console.log(this.data);
+        });
+    }
+
+    ionViewDidEnter(){
+        console.log("Enter LORAMOTE");
+        this.update_loramote();
+        console.log("enter loramote");
     }
 }
 
