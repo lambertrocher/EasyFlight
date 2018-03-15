@@ -59,14 +59,14 @@ export class MeteoPage implements OnInit {
         console.log("liste des aérports",airport_list);
         if (airport_list.length > 0) {
         let param_airport = "";
-        for (let airport of airport_list) {
-            console.log(airport);
-            param_airport = param_airport + ',' + airport;
-        }
-        param_airport = param_airport.substr(1);
-        console.log("metar/" + param_airport);
+            for (let airport of airport_list) {
+                console.log(airport);
+                param_airport = param_airport + ',' + airport;
+            }
+            param_airport = param_airport.substr(1);
+            console.log("metar/" + param_airport);
             this.api.get("metar/" + param_airport).subscribe(response => {
-                this.list_meteo = JSON.stringify(response);
+                    this.list_meteo = response;
                 console.log(this.list_meteo);
             });
         }
