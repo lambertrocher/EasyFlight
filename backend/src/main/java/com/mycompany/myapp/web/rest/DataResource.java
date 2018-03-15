@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -73,6 +74,10 @@ public class DataResource
 					// res is never null, and if it is it must be ignored
 				}
 			}
+			else
+			{
+				a.put(new JSONObject());
+			}
 		});
 
 		return ResponseEntity.ok(a.toString());
@@ -84,7 +89,7 @@ public class DataResource
 	 * @param airports the airport codes, comma separated
 	 * @return the ResponseEntity with status 200 (Ok) and with body the data, or with status 400 (Bad Request) if something weird happens
 	 */
-	@GetMapping("/metar/{airports}")
+	@GetMapping(value = "/metar/{airports}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public ResponseEntity<String> getMetar(@PathVariable String airports)
 	{
@@ -97,7 +102,7 @@ public class DataResource
 	 * @param airports the airport codes, comma separated
 	 * @return the ResponseEntity with status 200 (Ok) and with body the data, or with status 400 (Bad Request) if something weird happens
 	 */
-	@GetMapping("/taf/{airports}")
+	@GetMapping(value = "/taf/{airports}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public ResponseEntity<String> getTaf(@PathVariable String airports)
 	{
@@ -110,7 +115,7 @@ public class DataResource
 	 * @param airports the airport codes, comma separated
 	 * @return the ResponseEntity with status 200 (Ok) and with body the data, or with status 400 (Bad Request) if something weird happens
 	 */
-	@GetMapping("/notam/{airports}")
+	@GetMapping(value = "/notam/{airports}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public ResponseEntity<String> getNotam(@PathVariable String airports)
 	{
@@ -132,7 +137,7 @@ public class DataResource
 	 * @param deviceId the LoRaMote id, ideally tied to a specific plane
 	 * @return the ResponseEntity with status 200 (Ok) and with body the data, or with status 400 (Bad Request) if something weird happens
 	 */
-	@GetMapping("/loramote/{deviceId}")
+	@GetMapping(value = "/loramote/{deviceId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@Timed
 	public ResponseEntity<String> getLoramote(@PathVariable String deviceId, @RequestParam(required = false, value = "n") String n)
 	{
