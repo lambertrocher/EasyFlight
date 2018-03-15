@@ -31,16 +31,14 @@
   <ion-item>
     <ion-label>Aérodrômes</ion-label>
     <ion-select multiple="true" cancelText="Cancel" okText="OK" [(ngModel)]="airport" (ngModelChange)="onChange($event)">
-      <ion-option value="LFLS">LFLS</ion-option>
-      <ion-option value="LFLL">LFLL</ion-option>
+      <ion-option *ngFor="let airport of airports" value="{{airport.oaci}}">{{airport.oaci}}</ion-option>
     </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label>Avion</ion-label>
     <ion-select [(ngModel)]="plane" multiple="false" cancelText="Cancel" okText="OK">
-      <ion-option value="F-GAOX">F-GAOX</ion-option>
-      <ion-option value="A380">A380</ion-option>
+      <ion-option *ngFor="let plane of planes" value="{{plane.immatriculation}}">{{plane.immatriculation}}</ion-option>
     </ion-select>
   </ion-item>
 

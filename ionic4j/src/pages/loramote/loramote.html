@@ -7,14 +7,51 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Data from LoraMote</ion-title>
+    <ion-title>Données envoyées par la LoraMote</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+<ul>
+<li *ngFor="let loramote of data">
+		
 	<p>
-	Data
-</p>
+		GPS Tracking	
+	</p>	
+	<p>
+		Latitude:
+		{{ loramote.gps.latitude }}
+	</p>	
+	<p>
+		Longitude:
+		{{ loramote.gps.longitude }}
+	</p>
+	<p>
+		Altitude:
+		{{ loramote.gps.altitude }}
+	</p>	
+	<p>
+		Température:
+		{{ loramote.env.temperature }} °C
+	</p>
+	<p>
+	Pression:
+	{{ loramote.env.pressure }} hPa
+	</p>
+	<p>
+		Id du device LoRa:
+		{{ loramote.meta.device_id }}
+	</p>	
+	<p>
+	Etat de la batterie:
+	{{ loramote.board.battery }} %
+	</p>
+	<p>
+		Heure:
+		{{ loramote.meta.time }}
+	</p>
+</li>
+</ul>
 </ion-content>

@@ -4,6 +4,7 @@ import { Principal } from '../../providers/auth/principal.service';
 import { FirstRunPage } from '../pages';
 import { LoginService } from '../../providers/login/login.service';
 import { PreparationProvider} from "../../providers/preparation/preparation";
+import { Api } from "../../providers/api/api";
 
 /**
  * Generated class for the PreparationPage page.
@@ -19,12 +20,15 @@ import { PreparationProvider} from "../../providers/preparation/preparation";
 })
 export class PreparationPage implements OnInit{
     account: Account;
+    airports;
+    planes;
 
     constructor(public navCtrl: NavController,
                 private principal: Principal,
                 private app: App,
                 private loginService: LoginService,
                 private preparationProvider: PreparationProvider,
+                private api: Api
 ) { }
 
     ngOnInit() {
@@ -37,6 +41,7 @@ export class PreparationPage implements OnInit{
         });
         this.loadAirportsAndPlanes();
         this.preparationProvider.update_preparation(0, 0, 0, 0, 0, []);
+        this.loadAirportsAndPlanes();
     }
 
     loadAirportsAndPlanes() {
@@ -75,5 +80,16 @@ export class PreparationPage implements OnInit{
         this.preparationProvider.update_preparation(this.poids_pilote, this.poids_passager1, this.poids_passager2, this.poids_passager3, this.poids_bagages, this.airport);
     }
 
+    loadAirportsAndPlanes() {
+        this.api.get("aerodromes").subscribe(response => {
+            this.airports = response;
+        });
+        this.api.get("avions").subscribe(response => {
+            this.planes = response;
+        });
+    }
 
+    ionViewDidEnter(){
+        this.loadAirportsAndPlanes();
+    }
 }
