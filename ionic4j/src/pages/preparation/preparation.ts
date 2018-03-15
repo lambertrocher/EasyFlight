@@ -35,6 +35,7 @@ export class PreparationPage implements OnInit{
                 this.account = account;
             }
         });
+        this.preparationProvider.update_preparation(0, 0, 0, 0, 0, []);
     }
 
     isAuthenticated() {
@@ -61,7 +62,7 @@ export class PreparationPage implements OnInit{
     public poids_passager2: number = 0;
     public poids_passager3: number = 0;
     public poids_bagages: number = 0;
-    public airport;
+    public airport =[];
 
     onChange(event): void {
         // console.log("poids pilote", this.poids_pilote);

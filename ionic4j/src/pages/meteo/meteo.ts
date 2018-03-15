@@ -54,7 +54,7 @@ export class MeteoPage implements OnInit {
 
     update_meteo(){
 
-        let airport_list;
+        let airport_list = [];
         airport_list = this.preparationProvider.airport;
         console.log("liste des aérports",airport_list);
         if (airport_list.length > 0) {
