@@ -39,13 +39,7 @@ export class PreparationPage implements OnInit{
                 this.account = account;
             }
         });
-        this.loadAirportsAndPlanes();
         this.preparationProvider.update_preparation(0, 0, 0, 0, 0, []);
-        this.loadAirportsAndPlanes();
-    }
-
-    loadAirportsAndPlanes() {
-        console.log("LOADING STUFF");
     }
 
     isAuthenticated() {
