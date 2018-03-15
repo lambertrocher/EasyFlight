@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import javax.net.ssl.SSLContext;
+import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -25,8 +26,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.DefaultResponseErrorHandler;
+import org.springframework.web.client.ResponseErrorHandler;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -41,7 +46,7 @@ public class DataResource
 
 	private final Logger log = LoggerFactory.getLogger(DataResource.class);
 
-	private final RestTemplate standardRest = new RestTemplate();
+	private final RestTemplate standardRest = getStandardTemplate();
 	private final RestTemplate loraRest = getLoRaRestTemplate();
 
 	private ResponseEntity<String> common(String airports, String api)
@@ -59,25 +64,35 @@ public class DataResource
 		{
 			ResponseEntity<String> res = standardRest.getForEntity(String.format(api, s), String.class);
 
-			if(res.getStatusCode().is2xxSuccessful() && res.hasBody())
+			JSONObject obj;
+
+			if(res.getStatusCode() == HttpStatus.OK && res.hasBody())
 			{
 				try
 				{
-					JSONObject obj = new JSONObject(res.getBody());
-
-					obj.put("oaci", s);
-
-					a.put(obj);
+					obj = new JSONObject(res.getBody());
 				}
 				catch(JSONException ignored)
 				{
 					// res is never null, and if it is it must be ignored
+					obj = new JSONObject();
 				}
 			}
 			else
 			{
-				a.put(new JSONObject());
+				obj = new JSONObject();
 			}
+
+			try
+			{
+				obj.put("oaci", s);
+			}
+			catch(JSONException ignored)
+			{
+				// souldn't happen either
+			}
+
+			a.put(obj);
 		});
 
 		return ResponseEntity.ok(a.toString());
@@ -246,6 +261,29 @@ public class DataResource
 		return ResponseEntity.notFound().build();
 	}
 
+	private static RestTemplate getStandardTemplate()
+	{
+		ResponseErrorHandler errHandler = new DefaultResponseErrorHandler()
+		{
+			@Override
+			public void handleError(ClientHttpResponse response) throws IOException
+			{
+				HttpStatus statusCode = getHttpStatusCode(response);
+
+				switch(statusCode.series())
+				{
+					case CLIENT_ERROR:
+					case SERVER_ERROR:
+						return;
+					default:
+						throw new RestClientException("Unknown status code [" + statusCode + "]");
+				}
+			}
+		};
+
+		return new RestTemplateBuilder().errorHandler(errHandler).build();
+	}
+
 	private static RestTemplate getLoRaRestTemplate()
 	{
 		TrustStrategy acceptingTrustStrategy = (x509Certificates, s) -> true;
@@ -274,7 +312,7 @@ public class DataResource
 
 			HttpHeaders headers = request.getHeaders();
 
-			headers.add(HttpHeaders.ACCEPT, "application/json");
+			headers.add(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
 			headers.add(HttpHeaders.AUTHORIZATION, "key " + ttnStorageKey);
 
 			return execution.execute(request, body);
