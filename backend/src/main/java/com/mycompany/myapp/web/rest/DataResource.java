@@ -23,10 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
@@ -46,30 +43,35 @@ public class DataResource
 	{
 		if(airports == null || airports.isEmpty())
 		{
-			return ResponseEntity.ok("{}");
+			return ResponseEntity.ok("[]");
 		}
 
-		JSONObject o = new JSONObject();
+		JSONArray a = new JSONArray();
 
 		String[] array = airports.split(",");
 
 		Arrays.stream(array).filter(s -> !s.isEmpty()).forEachOrdered(s ->
 		{
-			String res = standardRest.getForObject(String.format(api, s), String.class);
+			ResponseEntity<String> res = standardRest.getForEntity(String.format(api, s), String.class);
 
-			try
+			if(res.getStatusCode().is2xxSuccessful())
 			{
-				JSONObject obj = new JSONObject(res);
+				try
+				{
+					JSONObject obj = new JSONObject(res);
 
-				o.put(s, obj);
-			}
-			catch(JSONException ignored)
-			{
-				// res is never null, and if it is it must be ignored
+					obj.put("oaci", s);
+
+					a.put(obj);
+				}
+				catch(JSONException ignored)
+				{
+					// res is never null, and if it is it must be ignored
+				}
 			}
 		});
 
-		return ResponseEntity.ok(o.toString());
+		return ResponseEntity.ok(a.toString());
 	}
 
 	/**
@@ -123,16 +125,27 @@ public class DataResource
 	/**
 	 * GET  /loramote/:id : Get LoRaMote data.
 	 *
-	 * @param id the LoRaMote id, ideally tied to a specific plane
+	 * @param deviceId the LoRaMote id, ideally tied to a specific plane
 	 * @return the ResponseEntity with status 200 (Ok) and with body the data, or with status 400 (Bad Request) if something weird happens
 	 */
-	@GetMapping("/loramote/{id}")
+	@GetMapping("/loramote/{deviceId}")
 	@Timed
-	public ResponseEntity<String> getLoramote(@PathVariable Integer id)
+	public ResponseEntity<String> getLoramote(@PathVariable String deviceId)
 	{
-		if(id == null || id <= 0)
+		int id;
+
+		try
 		{
-			return ResponseEntity.badRequest().build();
+			id = Integer.parseInt(deviceId);
+		}
+		catch(NumberFormatException e)
+		{
+			return ResponseEntity.badRequest().body("The given devide ID is not a number.");
+		}
+
+		if(id <= 0)
+		{
+			return ResponseEntity.badRequest().body("The devide ID must be positive.");
 		}
 
 		if(id == 1)
@@ -141,51 +154,48 @@ public class DataResource
 
 			String data = loraRest.getForObject(String.format(LORAMOTE_API, devideId), String.class);
 
-			if(data != null)
+			if(data == null || data.isEmpty())
 			{
-				if(data.isEmpty())
-				{
-					return ResponseEntity.ok("{}");
-				}
+				return ResponseEntity.noContent().build();
+			}
 
-				try
-				{
-					JSONArray a = new JSONArray(data);
+			try
+			{
+				JSONArray a = new JSONArray(data);
 
-					// retrieves the most recent payload, i.e. the last element
-					JSONObject o = (JSONObject) a.get(a.length() - 1);
+				// retrieves the most recent payload, i.e. the last element
+				JSONObject o = (JSONObject) a.get(a.length() - 1);
 
-					JSONObject result = new JSONObject();
+				JSONObject result = new JSONObject();
 
-					JSONObject board = new JSONObject();
-					board.put("led", o.get("led"));
-					board.put("battery", o.get("battery"));
-					result.put("board", board);
+				JSONObject board = new JSONObject();
+				board.put("led", o.get("led"));
+				board.put("battery", o.get("battery"));
+				result.put("board", board);
 
-					JSONObject env = new JSONObject();
-					env.put("temperature", o.get("temperature"));
-					env.put("pressure", o.get("pressure"));
-					env.put("altitude", o.get("bar_altitude"));
-					result.put("env", env);
+				JSONObject env = new JSONObject();
+				env.put("temperature", o.get("temperature"));
+				env.put("pressure", o.get("pressure"));
+				env.put("altitude", o.get("bar_altitude"));
+				result.put("env", env);
 
-					JSONObject gps = new JSONObject();
-					gps.put("latitude", o.get("latitude"));
-					gps.put("longitude", o.get("longitude"));
-					gps.put("altitude", o.get("altitude"));
-					result.put("gps", gps);
+				JSONObject gps = new JSONObject();
+				gps.put("latitude", o.get("latitude"));
+				gps.put("longitude", o.get("longitude"));
+				gps.put("altitude", o.get("altitude"));
+				result.put("gps", gps);
 
-					JSONObject meta = new JSONObject();
-					meta.put("device_id", o.get("device_id"));
-					meta.put("raw", o.get("raw"));
-					meta.put("time", o.get("time"));
-					result.put("meta", meta);
+				JSONObject meta = new JSONObject();
+				meta.put("device_id", o.get("device_id"));
+				meta.put("raw", o.get("raw"));
+				meta.put("time", o.get("time"));
+				result.put("meta", meta);
 
-					return ResponseEntity.ok(result.toString());
-				}
-				catch(JSONException | ClassCastException e)
-				{
-					return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-				}
+				return ResponseEntity.ok(result.toString());
+			}
+			catch(JSONException | ClassCastException e)
+			{
+				return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 			}
 		}
 
