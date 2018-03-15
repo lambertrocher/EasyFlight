@@ -64,35 +64,21 @@ public class DataResource
 		{
 			ResponseEntity<String> res = standardRest.getForEntity(String.format(api, s), String.class);
 
-			JSONObject obj;
-
 			if(res.getStatusCode() == HttpStatus.OK && res.hasBody())
 			{
 				try
 				{
-					obj = new JSONObject(res.getBody());
+					JSONObject obj = new JSONObject(res.getBody());
+
+					obj.put("oaci", s);
+
+					a.put(obj);
 				}
 				catch(JSONException ignored)
 				{
 					// res is never null, and if it is it must be ignored
-					obj = new JSONObject();
 				}
 			}
-			else
-			{
-				obj = new JSONObject();
-			}
-
-			try
-			{
-				obj.put("oaci", s);
-			}
-			catch(JSONException ignored)
-			{
-				// souldn't happen either
-			}
-
-			a.put(obj);
 		});
 
 		return ResponseEntity.ok(a.toString());
