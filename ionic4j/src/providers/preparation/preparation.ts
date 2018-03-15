@@ -14,10 +14,12 @@ export class PreparationProvider {
   poids_passager2;
   poids_passager3;
   poids_bagages;
-  airport =[];
+  airport;
+
 
   constructor(public http: HttpClient) {
     console.log('Hello PreparationProvider Provider');
+    this.airport =[];
   }
 
   update_preparation(poids_pilote, poids_passager1, poids_passager2, poids_passager3, poids_bagages, airport) {
