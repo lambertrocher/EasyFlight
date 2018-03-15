@@ -25,7 +25,7 @@ import { Settings } from '../providers/providers';
     </ion-content>
 
   </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  <ion-nav #content [root]="rootPage"></ion-nav>` 
 })
 export class MyApp {
   rootPage = MainPage;
@@ -33,13 +33,11 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Welcome', component: 'WelcomePage' },
-    { title: 'Tabs', component: 'TabsPage' },
-    { title: 'Login', component: 'LoginPage' },
-    { title: 'Signup', component: 'SignupPage' },
-    { title: 'Menu', component: 'MenuPage' },
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Entities', component: 'EntityPage' }
+    { title: 'Preparation du vol', component: 'PreparationPage' },
+    { title: 'Meteo', component: 'MeteoPage' },
+    { title: 'Notams', component: 'NotamsPage' },
+    { title: 'Masse et centrage', component: 'MassPage' },
+    { title: 'LoRaMote', component: 'LoramotePage' }
   ];
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config,
