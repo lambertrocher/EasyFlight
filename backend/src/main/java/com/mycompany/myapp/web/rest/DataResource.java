@@ -17,6 +17,8 @@ import org.apache.http.ssl.TrustStrategy;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -34,7 +36,9 @@ public class DataResource
 			METAR_API = "https://avwx.rest/api/metar/%1$s",
 			TAF_API = "https://avwx.rest/api/taf/%1$s?options=summary",
 			NOTAM_API = "https://api.autorouter.aero/v1.0/notam?itemas=[%1$s]&offset=0&limit=10",
-			LORAMOTE_API = "https://loramote_ricm.data.thethingsnetwork.org/api/v2/query/%1$s";
+			LORAMOTE_API = "https://loramote_ricm.data.thethingsnetwork.org/api/v2/query/%1$s?last=";
+
+	private final Logger log = LoggerFactory.getLogger(DataResource.class);
 
 	private final RestTemplate standardRest = new RestTemplate();
 	private final RestTemplate loraRest = getLoRaRestTemplate();
@@ -54,11 +58,11 @@ public class DataResource
 		{
 			ResponseEntity<String> res = standardRest.getForEntity(String.format(api, s), String.class);
 
-			if(res.getStatusCode().is2xxSuccessful())
+			if(res.getStatusCode().is2xxSuccessful() && res.hasBody())
 			{
 				try
 				{
-					JSONObject obj = new JSONObject(res);
+					JSONObject obj = new JSONObject(res.getBody());
 
 					obj.put("oaci", s);
 
